@@ -1,0 +1,26 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 16855b6c503c4fa89fc53045ec02a8d4, type: 3}
+  m_Name: BuildingConfig
+  m_EditorClassIdentifier: 
+  unlockPrice: 100
+  startUpgradeCost: 50
+  costMultiplier: 50
+  upgrades:
+  - {fileID: 11400000, guid: 23457e88a0b04de42912a086be25c7a9, type: 2}
+  - {fileID: 11400000, guid: d4b333b4830b73f4fb261dc932b5639c, type: 2}
+  - {fileID: 11400000, guid: 0661fb51d2bedbc4687fbc27f61fa4d4, type: 2}
+  - {fileID: 11400000, guid: efc22a71311f671439a8b8ffbf86d01e, type: 2}
+  - {fileID: 11400000, guid: 11983869a82bb294691c92b19f75d593, type: 2}
+  - {fileID: 11400000, guid: c23db9b952a110640b71acd5957ed968, type: 2}
+  - {fileID: 11400000, guid: 2988cb48bb54bcf48937255bab0ac2bf, type: 2}
+  - {fileID: 11400000, guid: f4e23be2fec61dc4aac9f65ae493aaa0, type: 2}
