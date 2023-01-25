@@ -1,0 +1,93 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bbb281ee3bf0b054c82ac2347e9e782c, type: 3}
+  m_Name: Default Local Group
+  m_EditorClassIdentifier: 
+  m_GroupName: Default Local Group
+  m_Data:
+    m_SerializedData: []
+  m_GUID: 0fada8233dd910f42bfa73e475fc8547
+  m_SerializeEntries:
+  - m_GUID: f4ce33a15b2801f4e8ffbb4136f27c91
+    m_Address: Factory 1
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: d4ff941ba9c2d87479d1ffac116d9d5f
+    m_Address: Factory 2
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: 7bfa74c9896cf494d9c938b6139a639f
+    m_Address: Factory 0
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: 91cf146d55807c64183c9541c3ee98ef
+    m_Address: Assets/Prefabs/Factorys/Bild 1/Factory 1.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: bf55ac100145c9b4ab78c7ce57086b3b
+    m_Address: Assets/Prefabs/Factorys/Bild 1/Factory 2.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: a14ed7ae44cf1fe4a8f326673d2da491
+    m_Address: Assets/Prefabs/Factorys/Bild 1/Factory.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: c643a2974b9cb2f40854e7178dfbc81b
+    m_Address: Assets/Prefabs/Factorys/Bild 1/Factory 3.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: c818aceb2aaf54a4a89a55bf3b3dd60d
+    m_Address: Assets/Prefabs/Factorys/Bild 1/Factory 4.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: f57108d62e735dd4fb96f6b8b1bf18b8
+    m_Address: Assets/Prefabs/Factorys/Bild 2/Factory.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: c29de5e5b3ada5f4b8112956cf8e5100
+    m_Address: Assets/Prefabs/Factorys/Bild 2/Factory 1.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: 3e95433d4533b0c48b2e1f34c2b6a31f
+    m_Address: Assets/Prefabs/Factorys/Bild 2/Factory 2.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: 98ab625e010f4df40ac348adccd9b43f
+    m_Address: Assets/Prefabs/Factorys/Bild 3/Factory 1.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: 2cae3004bb44d5e4597142d665b9c35b
+    m_Address: Assets/Prefabs/Factorys/Bild 3/Factory 2.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: 6e79a8e8e81690e4cb98c05bcf54456e
+    m_Address: Assets/Prefabs/Factorys/Bild 3/Factory.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: 8dfa46d4e49717c4999eaff2ba85d55c
+    m_Address: Assets/Prefabs/Factorys/Bild 4/Factory 1.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: 2e8f79b8bb29023439dbdce02d545d3b
+    m_Address: Assets/Prefabs/Factorys/Bild 4/Factory 2.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: 46293b81fa2737c469df80427f83df4d
+    m_Address: Assets/Prefabs/Factorys/Bild 4/Factory.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  m_ReadOnly: 0
+  m_Settings: {fileID: 11400000, guid: 9d28bea780c34014bb7822cb9c52de52, type: 2}
+  m_SchemaSet:
+    m_Schemas:
+    - {fileID: 11400000, guid: aabdf98bc3bc7ff47a0b188ab6bef732, type: 2}
+    - {fileID: 11400000, guid: bfe814b86a2cd0943ab3f5eb7e5c621d, type: 2}

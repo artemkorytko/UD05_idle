@@ -1,5 +1,7 @@
 ﻿using System;
+using Cysharp.Threading.Tasks;
 using UnityEngine;
+using UnityEngine.AddressableAssets;
 
 namespace DefaultNamespace
 {
@@ -14,40 +16,64 @@ namespace DefaultNamespace
          private BildingButton _bildingButton;
          private GameObject _currentModel;
 
-        private void Start()
+         private BildingData _data;
+
+        public void Initialize(BildingData data)
         {
+            _data = data;
             _bildingButton = GetComponentInChildren<BildingButton>();
-            SetModel(0);
-            SetButton(0);
+            
+            if (_data.IsUnlock)
+            {
+                SetModel(_data.UpgradeLevel);
+                SetButton(_data.UpgradeLevel);
+            }
+            else
+            {
+                SetButton(-1);
+            }
+            
+            
+        }
+
+        public BildingData GetData()
+        {
+            _data.IsUnlock = true;
+            return _data;
         }
 
         private void SetButton(int level)
         {
-            if (level == 0)
+            if (level == -1)
             {
-              _bildingButton.UpdateButton(BUY_TEXT, config.UnlockPrice);  
+                _bildingButton.UpdateButton(BUY_TEXT, config.UnlockPrice);  
             }
             else
-            {
+            { 
                 _bildingButton.UpdateButton(UPGRADE_TEXT, GetCost(level));
             }
         
             _bildingButton.UpdateButton("Upgrade", config.StartUpgradeCost * config.CostMultiplayer);
         }
 
-        private void SetModel(int level)
+        private async void SetModel(int level)
         {
             var upgradeConf = config.GetUpgrade(level);
-            
-            if(_currentModel)
-                Destroy(_currentModel);
-            
-            _currentModel = Instantiate(upgradeConf.Model, modelPoint);
+
+            if (_currentModel)
+            {
+                Addressables.ReleaseInstance(_currentModel);
+                //Destroy(_currentModel);
+            }
+
+
+            _currentModel = await Addressables.InstantiateAsync(upgradeConf.Model, modelPoint);
+            //_currentModel = Instantiate(upgradeConf.Model, modelPoint);
         }
 
         private float GetCost(int level)
         {
-           return  (float) System.Math.Round(config.StartUpgradeCost * Mathf.Pow(config.CostMultiplayer * 0.01f,level), 2);
+           return (float) Math.Round(config.StartUpgradeCost * Mathf.Pow(config.CostMultiplayer * 0.01f,level), 2);
         }
     }
 }

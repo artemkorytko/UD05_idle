@@ -1,0 +1,21 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: adf3a18ebe164840b17d188901d9e84b, type: 3}
+  m_Name: BildingConfig 4
+  m_EditorClassIdentifier: 
+  unlockPrice: 1000
+  startUpgradeCost: 500
+  costMultiplayer: 200
+  upgrade:
+  - {fileID: 11400000, guid: da24beb1023ea0e4ea83afadaf40680c, type: 2}
+  - {fileID: 11400000, guid: da7ec323b553dc648a54c3da993bf588, type: 2}
+  - {fileID: 11400000, guid: 13aabe36eca65a440ad1597257a00e51, type: 2}

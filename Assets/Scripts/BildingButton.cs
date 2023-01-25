@@ -13,6 +13,8 @@ namespace DefaultNamespace
         private Button _button;
         private float _curretCost;
 
+        public event Action OnClickEvent;
+
         private void Awake()
         {
             _button = GetComponent<Button>();
@@ -30,7 +32,7 @@ namespace DefaultNamespace
 
         private void OnClick()
         {
-            throw new NotImplementedException();
+            OnClickEvent?.Invoke();
         }
 
         public void UpdateButton(string text, float cost)
