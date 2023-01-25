@@ -1,0 +1,22 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 873093f0ec794464bdf1408f10c72578, type: 3}
+  m_Name: BuildingConfigClinic
+  m_EditorClassIdentifier: 
+  buildingName: Clinic
+  unlockPrice: 10
+  startUpgradeCost: 100
+  costMultiplier: 3
+  upgrades:
+  - {fileID: 11400000, guid: 160c9f460bced4436aa76308779d4847, type: 2}
+  - {fileID: 11400000, guid: aef8714c9fdef49439167d7cf32ba7a0, type: 2}
+  - {fileID: 11400000, guid: 92e1c5065cfd5477198742474e85e932, type: 2}
