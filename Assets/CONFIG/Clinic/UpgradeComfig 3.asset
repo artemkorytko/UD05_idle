@@ -12,5 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 890524857419424dbcf69584276eb2f9, type: 3}
   m_Name: UpgradeComfig 3
   m_EditorClassIdentifier: 
-  model: {fileID: 100000, guid: d4ecfb7a588ce5e49a3fbdaef52bc681, type: 3}
+  model:
+    m_AssetGUID: 9b9fcc58823d04db5a04ec8283dd3db5
+    m_SubObjectName: 
+    m_SubObjectType: 
+    m_EditorAssetChanged: 0
   processResult: 10

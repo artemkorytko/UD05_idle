@@ -16,6 +16,8 @@ namespace DefaultNamespace
         // и на кнопку
         private Button _button;
         private float _currentCost;
+
+        public event Action OnClickEvent; 
         //---------------------------------------------------------------------------
         
         private void Awake()
@@ -32,17 +34,19 @@ namespace DefaultNamespace
         // что будет по клинку
         private void OnClick()
         {
-            
+            OnClickEvent?.Invoke();
         }
         
         
         // приходит из Building
         public void UpdateButton(string text, float cost, string whatsit)
         {
+            //------------ не входит! -----------------
+            Debug.Log(" Вошел в апдейт кнопки");
             // когда обновилась
             titleText.text = text + $" the {whatsit}" ;
             _currentCost = cost;
-            costText.text    = _currentCost.ToString() ;
+            costText.text  = _currentCost.ToString() ;
         }
         
          // активна или не активна - если мало бабла - меняет состояние кнопки
@@ -53,8 +57,8 @@ namespace DefaultNamespace
         
         //---------------------------------------------------------------------------
         private void OnDestroy() //отписываемся 
-                 {
-                     _button.onClick.RemoveListener(OnClick);
-                 }
+         {
+           _button.onClick.RemoveListener(OnClick);
+         }
     }
 }
