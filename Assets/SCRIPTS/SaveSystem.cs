@@ -24,8 +24,9 @@ namespace DefaultNamespace
         
         public void Initialize() // было private void Start()
         {
-            //------ для ресета когда загрузился долбаный null --------
-            //       PlayerPrefs.DeleteAll();
+            //------------*** РЕСЕТ ***-------------------
+            // ResetAllSaved();
+            
             
             // проверяем, если мы уже что-то по этому пути сохранили
             if (PlayerPrefs.HasKey(SAVE_KEY))
@@ -72,5 +73,12 @@ namespace DefaultNamespace
         }
 
         
+        //--------------------------- для ресета накликанного ------------------------------------------------------
+        //------ не работает с кнопки
+        public void ResetAllSaved()
+        { 
+            PlayerPrefs.DeleteAll();
+        }
+
     }
 }

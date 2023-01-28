@@ -1,8 +1,10 @@
 using System;
+using System.Reflection.Emit;
 using UnityEngine;
 using UnityEngine.AddressableAssets;
 using UnityEngine.UI;
 using Cysharp.Threading.Tasks;
+using TMPro;
 using Unity.VisualScripting;
 
 // каждое здание в вакууме, котнтролирует свои кнопки и прогресс
@@ -27,11 +29,14 @@ namespace DefaultNamespace
         // ссылка на дату ? ://
         private BuildingsData _data;
 
+        private GameManager _gameManagerFile;
+
         //-----------------------------------------------------------------------------------------------------
         private void Awake()
         {
             // найти кнопку
             _button = GetComponentInChildren<BuldingButton>();
+            _gameManagerFile = FindObjectOfType<GameManager>();
         }
 
 
@@ -46,10 +51,39 @@ namespace DefaultNamespace
         {
             //----------------- тут Д/з -------------------------
             // работаете с кнопочкой, меняете состояние - у нее есть метод который делает неактивной
+            if (_data.IsUnlocked) // если разлочено и здание стоит
+            {
+
+                // меньше равно штуков в массиве upgrades в билдинг конфиг!
+                // BuildingConfig xxx = new BuildingConfig();
+                        if (_data.UpgradeLevel <= config.upgrades.Length  )
+                        {
+                            _data.UpgradeLevel++;
+                            Initialize(_data);
+                            RequestSnapshot(); //-----NEW пихаем в стек, который в GameManager
+                        }
+            }
+            
+            else // если НЕ разлочено, то разлочить и загрузить
+            {
+               
+                    _data.IsUnlocked = true;
+                    Debug.Log($" Нажалось, isUnlocked = {_data.IsUnlocked}");
+                    Initialize(_data);
+                    RequestSnapshot(); //-----NEW пихаем в стек, который в GameManager
+                
+            }
+            
+        }
+
+        private void RequestSnapshot() //-----NEW идет пихать в стек, который в GameManager
+        {
+            _gameManagerFile.Snapshot(); 
         }
 
 
 
+        
         public void Initialize(BuildingsData data)
         {
             // присваиваем на старте
@@ -86,9 +120,9 @@ namespace DefaultNamespace
                 {  
                     _whatsit = config.BuildingName;
                     
-                    // вернуть когда починю json ------ if (level == 0)
+                    // без JSON было: (level == 0)
                     // почему -1 ????????????????????
-                    if (level == 0)
+                    if (level == -1)
                     {
                         // уходит в кнопку:
                         _button.UpdateButton(BUY_TEXT, config.UnlockPrice, _whatsit);
@@ -108,7 +142,7 @@ namespace DefaultNamespace
         // async потому что внутри юнитаска
         private async void SetModel(int level)
         {
-            var upgradeConfig = config.GetUpgrade(level);
+            var upgradeConfig = config.GetUpgrade(level); // модельку и кол-во денег, которые приносит
             
             // если там уже есть здание то удалить его
             if (_currentModel)

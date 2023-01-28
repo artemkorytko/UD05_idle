@@ -41,12 +41,10 @@ namespace DefaultNamespace
         // приходит из Building
         public void UpdateButton(string text, float cost, string whatsit)
         {
-            //------------ не входит! -----------------
-            Debug.Log(" Вошел в апдейт кнопки");
             // когда обновилась
             titleText.text = text + $" the {whatsit}" ;
             _currentCost = cost;
-            costText.text  = _currentCost.ToString() ;
+            costText.text  = "$" + _currentCost.ToString();
         }
         
          // активна или не активна - если мало бабла - меняет состояние кнопки

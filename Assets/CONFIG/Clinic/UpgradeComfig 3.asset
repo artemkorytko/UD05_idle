@@ -13,8 +13,8 @@ MonoBehaviour:
   m_Name: UpgradeComfig 3
   m_EditorClassIdentifier: 
   model:
-    m_AssetGUID: 9b9fcc58823d04db5a04ec8283dd3db5
+    m_AssetGUID: be0519d0405d44ad8b1db9c5b8d379d7
     m_SubObjectName: 
     m_SubObjectType: 
     m_EditorAssetChanged: 0
-  processResult: 10
+  processResult: 30

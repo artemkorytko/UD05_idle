@@ -14,7 +14,7 @@ namespace DefaultNamespace
         
 
             // массиd апгрейдов
-        [SerializeField] private UpgradeConfig[] upgrades;
+        [SerializeField] public UpgradeConfig[] upgrades;
 
         // инкапсулейт alt enter только read
         public float UnlockPrice => unlockPrice;
@@ -23,13 +23,15 @@ namespace DefaultNamespace
         public float CostMultiplier => costMultiplier;
         public string BuildingName => buildingName;
 
-        // конфиг будем выдвавть 
+        //  возвращает конфиг, в котором моделька и сколько здание приносит денег
         public UpgradeConfig GetUpgrade(int index)
         {
             // не больше ли чем у нас ступеней
+            //------------- ТУТ ОШИБКА "ВНЕ МАССИВА" ЕСЛИ АПГРЕЙДИМ ВЫШЕ КОЛИЧЕСТВА КОНФИГОВ У ЗДАНИЯ
             if (index >= upgrades.Length) return null;
+            // if (index >= upgrades.Length) Debug.Log( $"index стал {index}" );
 
-            return upgrades[index];
+            return upgrades[index]; 
         }
 
         public bool IsUgradeExist(int index)

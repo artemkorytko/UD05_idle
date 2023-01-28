@@ -15,7 +15,7 @@ MonoBehaviour:
   buildingName: Clinic
   unlockPrice: 10
   startUpgradeCost: 100
-  costMultiplier: 3
+  costMultiplier: 5
   upgrades:
   - {fileID: 11400000, guid: 160c9f460bced4436aa76308779d4847, type: 2}
   - {fileID: 11400000, guid: aef8714c9fdef49439167d7cf32ba7a0, type: 2}
