@@ -17,6 +17,8 @@ namespace DefaultNamespace
         private Button _button;
         private float _currentCost;
 
+        public bool zabetonirovanoLi = false;
+
         public event Action OnClickEvent; 
         //---------------------------------------------------------------------------
         
@@ -52,7 +54,19 @@ namespace DefaultNamespace
         {
             _button.interactable = isActive;
         }
-        
+
+        public void Zabetonirovat()
+        {
+            _button.interactable = false;
+            zabetonirovanoLi = true;
+        }
+
+        public void Razbetonirovat()
+        {
+            _button.interactable = true;
+            zabetonirovanoLi = false;
+        }
+
         //---------------------------------------------------------------------------
         private void OnDestroy() //отписываемся 
          {

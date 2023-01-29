@@ -9,12 +9,8 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 890524857419424dbcf69584276eb2f9, type: 3}
-  m_Name: UpgradeComfig 3
+  m_Script: {fileID: 11500000, guid: 5834b5087d578d24c926ce20cd31e6d6, type: 3}
+  m_Name: Default Local Group_ContentUpdateGroupSchema
   m_EditorClassIdentifier: 
-  model:
-    m_AssetGUID: 8aee019c79533467a9e2190703df27ac
-    m_SubObjectName: 
-    m_SubObjectType: 
-    m_EditorAssetChanged: 0
-  processResult: 1000
+  m_Group: {fileID: 11400000, guid: 9a2e6b7394fc34150a81c39f73ec2c32, type: 2}
+  m_StaticContent: 0

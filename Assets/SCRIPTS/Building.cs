@@ -117,20 +117,26 @@ namespace DefaultNamespace
 
 
         private void SetButton(int level)
-                {  
+                {
                     _whatsit = config.BuildingName;
                     
                     // без JSON было: (level == 0)
-                    // почему -1 ????????????????????
+                    // ыыыы почему -1 ????????????????????
                     if (level == -1)
                     {
                         // уходит в кнопку:
                         _button.UpdateButton(BUY_TEXT, config.UnlockPrice, _whatsit);
                     }
                     else
-                    { 
+                    {
+                        if (level >= config.upgrades.Length -1) // ЫЫЫЫЫЫ!!!!
+                        {
+                            // _button.Upinteractable = false;
+                            _button.Zabetonirovat();
+                        }
+
                         //_button.UpdateButton(UPGRADE_TEXT, GetCost(level), _whatsit);
-                        _button.UpdateButton(UPGRADE_TEXT, config.StartUpgradeCost * config.CostMultiplier, _whatsit);
+                        _button.UpdateButton(UPGRADE_TEXT, config.StartUpgradeCost * config.CostMultiplier * (level + 1), _whatsit);
                     }
                     
                     // от Вовы:
@@ -144,7 +150,7 @@ namespace DefaultNamespace
         {
             var upgradeConfig = config.GetUpgrade(level); // модельку и кол-во денег, которые приносит
             
-            // если там уже есть здание то удалить его
+            // если там уже есть здание то удалить его ПОЛЮБОМУ
             if (_currentModel)
             {
                 // без Adressable было:
@@ -154,11 +160,16 @@ namespace DefaultNamespace
                 Addressables.ReleaseInstance(_currentModel);
             }
 
+            Debug.Log($" Модель заменили, {_whatsit} level {level}");
             // без Adressable было:
             // _currentModel = Instantiate(upgradeConfig.Model, modelPoint);
             
             // асинхронно, потому что объект не лежит в памяти и надо подгружать, если большое не справимся в 1 кадр
             // надо дождаться, пока выполнится асинхронная операция, АК рекомендует таски - поэтому "await"
+            
+            // !!!! тут была ошибка, если грузишь здание круче, чем максимальное...... и оно пропадает
+            // ?????????????-------------- где-то тут не грузит новые модели ---------------------------------
+
             _currentModel = await Addressables.InstantiateAsync(upgradeConfig.Model, modelPoint);
             
             // моё: принудительно ставлю на место

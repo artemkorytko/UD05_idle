@@ -22,7 +22,7 @@ namespace DefaultNamespace
 
         //------- стек для undo
         private Stack <GameData> _undoStack;
-        private GameData _prewsnap;
+        // private GameData _prewsnap;
         private GameData _snap;
 
         private void Awake() // нахрдим наши системы 
@@ -67,8 +67,8 @@ namespace DefaultNamespace
         //============= стек для отмены действий =====================================
         //----------- ну работало же нормально!!!! -----------------------------------
         public void Snapshot()
-        {
-            _snap = new GameData();
+        { 
+            _snap = _gameData;
             _snap.BuildingsData = _fieldManager.GetBuildingData();
             _undoStack.Push(_snap);
             
@@ -79,22 +79,31 @@ namespace DefaultNamespace
         {
             if (_undoStack.Count > 1)
             {
-                _prewsnap = new GameData();
+                //_gameData = new GameData();
+                 // GameData _prewsnap = new GameData();
                 
                 // какого-то перестало работать :((((((((((((((((
                 _undoStack.Pop(); // выкидывает верхнюю
-                _prewsnap = _undoStack.Peek(); // смотрит что осталось сверху 
-                Debug.Log($" в стеке осталось {_undoStack.Count}");
+                _gameData = _undoStack.Peek(); // смотрит что осталось сверху 
+                Debug.Log($"  напечатай чё в стеке: {_gameData}");
                 
-                _fieldManager.Initialize(_prewsnap);
+                _undoStack.Pop();
+                //Debug.Log($" в стеке осталось {_undoStack.Count}");
+                
+
+                ReloadAllBuilding();
+                // _fieldManager.Initialize(_prewsnap);
             }
             else
             {
                 Debug.Log(" В стеке ничего не осталось!");
             }
+        }
 
 
-            
+        public void ReloadAllBuilding()
+        {
+            _fieldManager.Initialize(_gameData);
         }
     }
 }

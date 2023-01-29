@@ -18,6 +18,8 @@ namespace DefaultNamespace
 
         // ссылка на GameData
         private GameData _gameData;
+
+        private FieldMaganer _fieldManagerFile;
         // вынесли ее в публичное поле заинкапуслировавши:
         public GameData Data => _gameData;
 
@@ -25,8 +27,8 @@ namespace DefaultNamespace
         public void Initialize() // было private void Start()
         {
             //------------*** РЕСЕТ ***-------------------
-            // ResetAllSaved();
-            
+            //  ResetAllSaved();
+            _fieldManagerFile = FindObjectOfType<FieldMaganer>();
             
             // проверяем, если мы уже что-то по этому пути сохранили
             if (PlayerPrefs.HasKey(SAVE_KEY))
@@ -78,6 +80,11 @@ namespace DefaultNamespace
         public void ResetAllSaved()
         { 
             PlayerPrefs.DeleteAll();
+            _gameData = new GameData();
+            // string jsonData =  JsonUtility.ToJson(_gameData);
+           // LoadData();
+           
+            _fieldManagerFile.Initialize(_gameData);
         }
 
     }
