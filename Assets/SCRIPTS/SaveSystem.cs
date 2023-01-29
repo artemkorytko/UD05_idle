@@ -75,15 +75,11 @@ namespace DefaultNamespace
         }
 
         
-        //--------------------------- для ресета накликанного ------------------------------------------------------
-        //------ не работает с кнопки
+        //--------------------------- для полного ресета накликанного ----------------------------------------------
         public void ResetAllSaved()
-        { 
-            PlayerPrefs.DeleteAll();
+        {
             _gameData = new GameData();
-            // string jsonData =  JsonUtility.ToJson(_gameData);
-           // LoadData();
-           
+            //--------- РАБОТАЕТ! -----------------
             _fieldManagerFile.Initialize(_gameData);
         }
 

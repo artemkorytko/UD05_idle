@@ -1,5 +1,7 @@
 using System;
+using System.Collections;
 using System.Collections.Generic;
+using Cysharp.Threading.Tasks;
 using UnityEngine;
 
 //------ хранит, получает и инициализирует всех остальных --------------
@@ -11,7 +13,7 @@ namespace DefaultNamespace
     {
         private SaveSystem _saveSystem;
         private FieldMaganer _fieldManager;
-        
+
         //мое
         private MoneyManager _moneyManagerfile;
 
@@ -21,8 +23,10 @@ namespace DefaultNamespace
         private GamePanel _gamePanelFile;
 
         //------- стек для undo
-        private Stack <GameData> _undoStack;
-        // private GameData _prewsnap;
+        private Stack<GameData> _undoStack;
+        
+        private Stack<GameData> _timepassStack;
+        private GameData _prewsnap;
         private GameData _snap;
 
         private void Awake() // нахрдим наши системы 
@@ -44,7 +48,7 @@ namespace DefaultNamespace
             // говорим филдменеджеру инициализируйся и передаем ему туда вглубь геймдату
             // а он передаст зданиям и инициализирует
             _fieldManager.Initialize(_gameData); // set data - отправить/присвоить
-            
+
             // посылаю в панель сколько денег и пусть отображает, также шлю их в файл про бабло
             _gamePanelFile.SetMoneyOnPanel(_gameData.Money);
             _moneyManagerfile.AddMoney(_gameData.Money);
@@ -59,7 +63,7 @@ namespace DefaultNamespace
             // тот делает новый массив из отдельных дат зданий, туда берет внутри каждого здания 
             // свой экземпляр BuildingsData
             _gameData.BuildingsData = _fieldManager.GetBuildingData();
-            
+
             // говорим сохранить - в этот момент филд менеджер уже распихал инфу по массиву в файле GameData
             _saveSystem.SaveData();
         }
@@ -67,43 +71,94 @@ namespace DefaultNamespace
         //============= стек для отмены действий =====================================
         //----------- ну работало же нормально!!!! -----------------------------------
         public void Snapshot()
-        { 
+        {
             _snap = _gameData;
             _snap.BuildingsData = _fieldManager.GetBuildingData();
             _undoStack.Push(_snap);
-            
+
             Debug.Log($" snap added, {_undoStack.Count}");
         }
 
         public void Undo()
         {
+            if (_undoStack.Count == 1)
+            {
+                _prewsnap = _undoStack.Peek();
+                _fieldManager.Initialize(_prewsnap);
+                
+                ReloadAllBuildingsToPrew();
+                return;
+            }
+
             if (_undoStack.Count > 1)
             {
-                //_gameData = new GameData();
-                 // GameData _prewsnap = new GameData();
-                
-                // какого-то перестало работать :((((((((((((((((
-                _undoStack.Pop(); // выкидывает верхнюю
-                _gameData = _undoStack.Peek(); // смотрит что осталось сверху 
-                Debug.Log($"  напечатай чё в стеке: {_gameData}");
+                // _gameData = new GameData();
+                _prewsnap = new GameData();
+
+                // ????????????????????????????????????????????????????????
+                // ПРЕДПОЛОЖИТЕЛЬНО ПРОБЛЕМА ТУТ :((((((((((((((((
+                // ????????????????????????????????????????????????????????
+                // _undoStack.Pop(); // выкидывает верхнюю
+
+                _prewsnap = _undoStack.Peek(); // смотрит что осталось сверху 
+                //Debug.Log($" в стеке осталось {_undoStack.Count}");
                 
                 _undoStack.Pop();
                 //Debug.Log($" в стеке осталось {_undoStack.Count}");
-                
 
-                ReloadAllBuilding();
-                // _fieldManager.Initialize(_prewsnap);
+                ReloadAllBuildingsToPrew();
+                return;
             }
-            else
-            {
-                Debug.Log(" В стеке ничего не осталось!");
-            }
+
+            Debug.Log(" В стеке ничего нет! ");
+        }
+
+        //----------------- для Undo -----------------------------------------------------------------------------
+        public void ReloadAllBuildingsToPrew()
+        {
+            _fieldManager.Initialize(_prewsnap);
+            
         }
 
 
-        public void ReloadAllBuilding()
-        {
-            _fieldManager.Initialize(_gameData);
+        //----------------- Прокрутка событий с начала до сейчас --------------------------------------------------
+        //----------------- надо бы undo сохранять тоже.... -------------------------------------------------------
+        public async void Timepass()
+        { //-------- сейчас тут в стеках тасуется, значение передается, модельки мигают, но не меняются :/ --------- 
+            
+            _timepassStack = new Stack<GameData>();
+            GameData inwork = null;
+            Debug.Log($" в undo стеке - {_undoStack.Count}");
+
+            
+            
+            // переложить все в новый стек, и первое будет свеху лежать. наверноое))
+            int countem = _undoStack.Count;
+            for (int i = 1; i < countem; i++)
+            {
+                inwork = _undoStack.Peek();
+                _timepassStack.Push(inwork);
+                _undoStack.Pop();
+                Debug.Log($" в undo стеке - {_undoStack.Count}, в таймпасс {_timepassStack.Count}");
+            }
+            
+            // типо очистить
+            GameData empty = new GameData();
+            _fieldManager.Initialize(empty);
+
+            
+            
+            // типо по одному перебрать второй стек и показывать с бывшего нижнего
+            int countemagain = _timepassStack.Count;
+            for (int i = 1; i < countemagain; i++)
+            {
+                inwork = _timepassStack.Peek(); 
+                _fieldManager.Initialize(inwork); 
+                _timepassStack.Pop(); 
+                await UniTask.Delay(TimeSpan.FromSeconds(1));
+                Debug.Log($" в timepass стеке - {_timepassStack.Count}");
+            }
+
         }
     }
 }
