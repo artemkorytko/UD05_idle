@@ -48,5 +48,10 @@ namespace DefaultNamespace
         {
             _button.interactable = isActive;
         }
+        
+        public void OnMoneyValueChaged(float value)
+        {
+            SetState(_currentCost <= value);
+        }
     }
 }
