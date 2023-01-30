@@ -16,6 +16,7 @@ MonoBehaviour:
   startUpgradeCost: 500
   costMultiplier: 200
   upgrades:
-  - {fileID: 11400000, guid: 740ecc1f706df48f5a08ecfc76c0e24c, type: 2}
-  - {fileID: 11400000, guid: 7e06c199a918143c0a2c80640857583b, type: 2}
+  - {fileID: 11400000, guid: 7f6ad840d8e3a46da91ed145b615bbe1, type: 2}
   - {fileID: 11400000, guid: c547da98b19354004a51623d0f6d5f74, type: 2}
+  - {fileID: 11400000, guid: f8e1e330f6ce14770a3ae884d50a4f91, type: 2}
+  - {fileID: 11400000, guid: 3b601d360bbcb4767b86ceba76cf082f, type: 2}

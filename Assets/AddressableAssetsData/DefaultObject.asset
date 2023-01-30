@@ -9,8 +9,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: cd189e82695a49a4a0d86c5792742421, type: 3}
-  m_Name: UpgradeConfig 5
+  m_Script: {fileID: 11500000, guid: 3a189bb168d8d90478a09ea08c2f3d72, type: 3}
+  m_Name: DefaultObject
   m_EditorClassIdentifier: 
-  model: {fileID: 6764412135319281004, guid: 3aa2a308a562241ad90d6f2885c3a8fe, type: 3}
-  processResult: 1
+  m_AddressableAssetSettingsGuid: bf17ea6d75b34479bada45dd8329cd37

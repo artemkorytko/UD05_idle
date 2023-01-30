@@ -1,0 +1,397 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bbb281ee3bf0b054c82ac2347e9e782c, type: 3}
+  m_Name: Default Local Group
+  m_EditorClassIdentifier: 
+  m_GroupName: Default Local Group
+  m_Data:
+    m_SerializedData: []
+  m_GUID: 1052a1b2b713145e7bac1c382268d242
+  m_SerializeEntries:
+  - m_GUID: 3aa2a308a562241ad90d6f2885c3a8fe
+    m_Address: Factory 0
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: dd4805b2cc3874be291fd16fad821803
+    m_Address: Factory 1
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - default
+  - m_GUID: 47e4b0c63c3d34b5bb486594118958b6
+    m_Address: Factory 2
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - default
+    - Factorys
+  - m_GUID: 940ce83c284804de5931da4a631c831f
+    m_Address: Factory 3
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Factorys
+  - m_GUID: c26a65b944afdb74bac651e4d17610c1
+    m_Address: Assets/Buildings/Mobile/appliances_factory_mobile.fbx
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: cf049117258669548809bad082985d2d
+    m_Address: Assets/Buildings/Mobile/appliances_store_mobile.fbx
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: 60f9a207d6f743741be5b9734c4ac96d
+    m_Address: Assets/Buildings/Mobile/bookstore_mobile.fbx
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: 7950ab09ad4da144199bfd21bf42548e
+    m_Address: Assets/Buildings/Mobile/car_factory_mobile.fbx
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: 4cb6a23ffcc58db4fb5bd808f1c81dfe
+    m_Address: Assets/Buildings/Mobile/car_store_mobile.fbx
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: 61e7af72ea3e74342b4ecd2b5b02bbbb
+    m_Address: Assets/Buildings/Mobile/chemical_laboratory_mobile.fbx
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: 29c6a522a5ccf79409db87f7528e398d
+    m_Address: Assets/Buildings/Mobile/chemical_store_mobile.fbx
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: bdff7604a06c3684aa875c29f2780d9a
+    m_Address: Assets/Buildings/Mobile/cinema_mobile.fbx
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: 465dec3254391844db549624ba0cf5be
+    m_Address: Assets/Buildings/Mobile/city_hall_mobile.fbx
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: fd4a3cc6ac8c22b49ae6c36e273b38fb
+    m_Address: Assets/Buildings/Mobile/clothing_store_mobile.fbx
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: 7b454902af51c4741a734bf771144217
+    m_Address: Assets/Buildings/Mobile/computer_store_mobile.fbx
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: cc14922938b3e2d47acd7d8602db71aa
+    m_Address: Assets/Buildings/Mobile/cosmetic_laboratory_mobile.fbx
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: 0df139a6d6e9432488af463eb75a9fa3
+    m_Address: Assets/Buildings/Mobile/cosmetic_shop_mobile.fbx
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: 6be4e04bd9cc5904a9d055d1732cab64
+    m_Address: Assets/Buildings/Mobile/electronic_store_mobile.fbx
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: 6b90f722703c9114f81b0bb5b4ba0868
+    m_Address: Assets/Buildings/Mobile/electronics_factory_mobile.fbx
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: 87ec9ca01b835bc408e15f1e0ddc40f1
+    m_Address: Assets/Buildings/Mobile/food_factory_mobile.fbx
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: 16863b87ee727ac4d994f2af5110ec35
+    m_Address: Assets/Buildings/Mobile/furniture_factory_mobile.fbx
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: 879d6eb73869dbc4bb6435c34e2dd6da
+    m_Address: Assets/Buildings/Mobile/furniture_store_mobile.fbx
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: 0c1f373f719671d4dae4af778b96e02d
+    m_Address: Assets/Buildings/Mobile/grocery_store_mobile.fbx
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: bfc99bbf4b91f1c49881150b23562811
+    m_Address: Assets/Buildings/Mobile/guard_mobile.fbx
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: 6ee056263f67ef545b373060986c8beb
+    m_Address: Assets/Buildings/Mobile/heavy_equipment_factory_mobile.fbx
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: 2eeb6abac54285147aae0ebf736625ff
+    m_Address: Assets/Buildings/Mobile/heavy_equipment_store_mobile.fbx
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: db24b166830fa5649a23784f8e084a99
+    m_Address: Assets/Buildings/Mobile/house_1_mobile.fbx
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: dc4a4978b5be1db4fb565cf7c8fb27fd
+    m_Address: Assets/Buildings/Mobile/house_2_mobile.fbx
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: 2cf4db9de526eda4b95f34d256fcc9ef
+    m_Address: Assets/Buildings/Mobile/house_2_v_1_mobile.fbx
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: cd1f73dd4a18f034caf98b6a4096a443
+    m_Address: Assets/Buildings/Mobile/house_2_v_2_mobile.fbx
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: 466903dedd59e814ab0c5462ff7df8ac
+    m_Address: Assets/Buildings/Mobile/house_2_v_3_mobile.fbx
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: 783888662cd697846832cd1f884f97ac
+    m_Address: Assets/Buildings/Mobile/house_2_v_4_mobile.fbx
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: a1ec12dc0f4687e45b6697dc7c435803
+    m_Address: Assets/Buildings/Mobile/house_2_v_5_mobile.fbx
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: a07aa3def4dbbb040b4557da67c80895
+    m_Address: Assets/Buildings/Mobile/house_2_v_6_mobile.fbx
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: 66635a139739b084491ec38d71e110ff
+    m_Address: Assets/Buildings/Mobile/house_2_v_7_mobile.fbx
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: ef6229a1cd489b743ae1214237d371fd
+    m_Address: Assets/Buildings/Mobile/house_2_v_8_mobile.fbx
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: ffb768713ac53f14fa04451aa6ae5355
+    m_Address: Assets/Buildings/Mobile/house_2_v_9.000.fbx
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: 30bc00ebe3daa2e4bbc346030d742de6
+    m_Address: Assets/Buildings/Mobile/house_2_v_10_mobile.fbx
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: 35e0c22789d2b3f4bbebe00692927468
+    m_Address: Assets/Buildings/Mobile/house_2_v_11_mobile.fbx
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: 71f22057969f6ad42bd074095b31d6a5
+    m_Address: Assets/Buildings/Mobile/house_2_v_12_mobile.fbx
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: fc1d2c22f56dcac4caefafe0bcab3ad1
+    m_Address: Assets/Buildings/Mobile/house_2_v_13_mobile.fbx
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: a05b4b3b170f55649b168f119ef61e93
+    m_Address: Assets/Buildings/Mobile/house_2_v_14_mobile.fbx
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: 6c8a1de17559dc84780152ea3352a592
+    m_Address: Assets/Buildings/Mobile/house_2_v_15_mobile.fbx
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: e74d085feae0ce741b172ece485c2b2e
+    m_Address: Assets/Buildings/Mobile/house_2_v_16_mobile.fbx
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: 02142bcc6b42dac45b37a333894fb75b
+    m_Address: Assets/Buildings/Mobile/house_2_v_17_mobile.fbx
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: a9a298499ee8bb74db306546e383b614
+    m_Address: Assets/Buildings/Mobile/house_2_v_18_mobile.fbx
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: 13c58bd583a086044bf8a4d565f49885
+    m_Address: Assets/Buildings/Mobile/house_2_v_19_mobile.fbx
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: cdc3cd23445803041b6fdc18d012d160
+    m_Address: Assets/Buildings/Mobile/house_2_v_20_mobile.fbx
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: fd7fab44162f9d64fbbf5feb9542e379
+    m_Address: Assets/Buildings/Mobile/house_2_v_21_mobile.fbx
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: b11d38b758dd9ab4281cc113b3a55f98
+    m_Address: Assets/Buildings/Mobile/house_2_v_22_mobile.fbx
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: 3ba2712ba0d89d54880972809b566720
+    m_Address: Assets/Buildings/Mobile/house_2_v_23_mobile.fbx
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: 8a8bbfc562aa4a045874b04a8c477616
+    m_Address: Assets/Buildings/Mobile/house_2_v_24_mobile.fbx
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: 7b384f135bc4e9c4eac9bd780fad1078
+    m_Address: Assets/Buildings/Mobile/house_2_v_25_mobile.fbx
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: c1ddfa7b6a6739e43b7e19eeb4141215
+    m_Address: Assets/Buildings/Mobile/house_2_v_26_mobile.fbx
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: c995d23fc4b402340b8ccb1682856d34
+    m_Address: Assets/Buildings/Mobile/house_2_v_27_mobile.fbx
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: 83f0c8b2030e54b4ebce371a88ed1d26
+    m_Address: Assets/Buildings/Mobile/house_2_v_28_mobile.fbx
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: 1e079a326b40b4849aabad9729e204b9
+    m_Address: Assets/Buildings/Mobile/house_2_v_29_mobile.fbx
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: 4f9f9a50738cf3b43b7646aef3d99951
+    m_Address: Assets/Buildings/Mobile/house_2_v_30_mobile.fbx
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: 26d2357de2c713b458237142df146200
+    m_Address: Assets/Buildings/Mobile/house_2_v_31_mobile.fbx
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: 3299bee5147da7d4190f008d23ac8b24
+    m_Address: Assets/Buildings/Mobile/house_2_v_32_mobile.fbx
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: c30a11f131d59354885a566edb5c7278
+    m_Address: Assets/Buildings/Mobile/house_2_v_33_mobile.fbx
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: a5b332fb67736ca4e83e44f3e292beed
+    m_Address: Assets/Buildings/Mobile/house_2_v_34_mobile.fbx
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: c0916b26f8d215144a12ba633c106f7c
+    m_Address: Assets/Buildings/Mobile/house_3_mobile.fbx
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: 8a707f396fcdb5b49b4fe30f7ec86bb2
+    m_Address: Assets/Buildings/Mobile/house_4_mobile.fbx
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: 3c55721723f459842bed530039322d82
+    m_Address: Assets/Buildings/Mobile/house_5_mobile.fbx
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: cb7b9fc9b99d7c54a8600a0771c2acf9
+    m_Address: Assets/Buildings/Mobile/house_6_mobile.fbx
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: 68b3da2142d8aaf4eb1d2615b79b4e5c
+    m_Address: Assets/Buildings/Mobile/industrial_factory_mobile.fbx
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: d5ca6afe18d48884aa37e9fbc26c4dd1
+    m_Address: Assets/Buildings/Mobile/industrial_shop_mobile.fbx
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: 3d6a43723b933514d8adf70dfb047caa
+    m_Address: Assets/Buildings/Mobile/metal_store_mobile.fbx
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: 8066ce8eaec3bd44a97df2754f1bd665
+    m_Address: Assets/Buildings/Mobile/mine_mobile.fbx
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: ff737039c13ae774ab756bb98b261f53
+    m_Address: Assets/Buildings/Mobile/movie_studio_mobile.fbx
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: 7318d46f8a8552f4491658d408dded54
+    m_Address: Assets/Buildings/Mobile/office_supplies_factory_mobile.fbx
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: 98fd85eb373b94a4da441e600fd0ad0e
+    m_Address: Assets/Buildings/Mobile/office_supply_store_mobile.fbx
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: 52d05d9e37cdd354bbd566a2df3b8f6a
+    m_Address: Assets/Buildings/Mobile/parlament_mobile.fbx
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: 5e301659520745a46a0c3fc4e790b356
+    m_Address: Assets/Buildings/Mobile/pharmaceutical_factory_mobile.fbx
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: b30a665aaba96e7419b5703e8a55c84f
+    m_Address: Assets/Buildings/Mobile/pharmacy_mobile.fbx
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: 364121920835d0b4fa92d92bb5ecf9d2
+    m_Address: Assets/Buildings/Mobile/police_academy_mobile.fbx
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: dd4098679fe9429489b8f8688848b0b1
+    m_Address: Assets/Buildings/Mobile/power_plant_mobile.fbx
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: 7c1fe1143f16b6a4bb674b0acdb9f191
+    m_Address: Assets/Buildings/Mobile/publisher_mobile.fbx
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: c2dd7fbd49712b845af4426ebf41c879
+    m_Address: Assets/Buildings/Mobile/rubber_store_mobile.fbx
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: 2dffde0e8df700347ad28e6bf9daf439
+    m_Address: Assets/Buildings/Mobile/sawmill_mobile.fbx
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: 1424c86d9fae2cb40818ddb7ad0f6158
+    m_Address: Assets/Buildings/Mobile/school_mobile.fbx
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: edf668debdf1f8e4084f4d7a2b14e0cf
+    m_Address: Assets/Buildings/Mobile/sewing_mobile.fbx
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: a6d3d2a0db1380c41a980eaf94fa931a
+    m_Address: Assets/Buildings/Mobile/software_company_mobile.fbx
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: 2045e42716953924190db43bc47c0353
+    m_Address: Assets/Buildings/Mobile/sport_store_mobile.fbx
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: 0223c6fafa6aea14ea7a8c6ddd17f5b1
+    m_Address: Assets/Buildings/Mobile/sports_equipment_factory_mobile.fbx
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: aae4f4f66e900d74d94f786cd80762b7
+    m_Address: Assets/Buildings/Mobile/studio_video_games_mobile.fbx
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: 08fb4c051dce2314d96f59a5f557c330
+    m_Address: Assets/Buildings/Mobile/tobacco_shop_mobile.fbx
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: ef8c402d5152bf847bdc2d854a177287
+    m_Address: Assets/Buildings/Mobile/toy_factory_mobile.fbx
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: f1366fc1ea165f24aa4d290645eabdd1
+    m_Address: Assets/Buildings/Mobile/toy_store_mobile.fbx
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: 6cc90a4b5e9ced64faa4cd826a153dad
+    m_Address: Assets/Buildings/Mobile/university_mobile.fbx
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: d7a06c7223376474e84b3e325ae6c288
+    m_Address: Assets/Buildings/Mobile/video_games_store_mobile.fbx
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  m_ReadOnly: 0
+  m_Settings: {fileID: 11400000, guid: bf17ea6d75b34479bada45dd8329cd37, type: 2}
+  m_SchemaSet:
+    m_Schemas:
+    - {fileID: 11400000, guid: d44e5b7fd37c748fa9ceda3826cb99e9, type: 2}
+    - {fileID: 11400000, guid: d21fc1ded56c141ffbf16fda04483492, type: 2}

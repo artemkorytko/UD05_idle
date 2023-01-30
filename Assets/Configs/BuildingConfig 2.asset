@@ -16,6 +16,7 @@ MonoBehaviour:
   startUpgradeCost: 10
   costMultiplier: 20
   upgrades:
-  - {fileID: 11400000, guid: f8e1e330f6ce14770a3ae884d50a4f91, type: 2}
   - {fileID: 11400000, guid: c547da98b19354004a51623d0f6d5f74, type: 2}
   - {fileID: 11400000, guid: 3b601d360bbcb4767b86ceba76cf082f, type: 2}
+  - {fileID: 11400000, guid: 7f6ad840d8e3a46da91ed145b615bbe1, type: 2}
+  - {fileID: 11400000, guid: f8e1e330f6ce14770a3ae884d50a4f91, type: 2}

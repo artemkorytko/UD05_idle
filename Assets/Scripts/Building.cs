@@ -1,5 +1,8 @@
 using System;
+using System.Collections;
+using Cysharp.Threading.Tasks;
 using UnityEngine;
+using UnityEngine.AddressableAssets;
 
 namespace DefaultNamespace
 {
@@ -7,6 +10,7 @@ namespace DefaultNamespace
     {
         private const string BUY_TEXT = "BUY";
         private const string UPGRADE_TEXT = "UPGRADE";
+        private const float DELAY = 1f;
 
         [SerializeField] private BuildingConfig config;
         [SerializeField] private Transform modelPoint;
@@ -14,34 +18,117 @@ namespace DefaultNamespace
 
         private GameObject _currentModel;
 
-        private void Start()
+        private BuildingData _data;
+
+        private Coroutine _timerCor;
+
+        private void Awake()
         {
             _button = GetComponentInChildren<BuildingButton>();
-            SetModel(0);
-            SetButton(1);
+        }
+
+        private void Start()
+        {
+            GameManager.Instance.OnMoneyChanged += OnMoneyChanged;
+            _button.OnClickEvent += OnButtonClick;
+        }
+
+        private void OnDestroy()
+        {
+            GameManager.Instance.OnMoneyChanged -= OnMoneyChanged;
+            _button.OnClickEvent -= OnButtonClick;
+        }
+
+        private void OnMoneyChanged(float value)
+        {
+            _button.OnMoneyValueChanged(value);
+        }
+
+        private void OnButtonClick()
+        {
+            if (!_data.IsUnlock)
+            {
+                _data.IsUnlock = true;
+                GameManager.Instance.Money -= config.UnlockPrice;
+                SetButton(_data.UpgradeLevel);
+                SetModel(_data.UpgradeLevel);
+                return;
+            }
+
+            if (config.IsUpgradeExist(_data.UpgradeLevel + 1))
+            {
+                _data.UpgradeLevel++;
+                GameManager.Instance.Money -= GetCost(_data.UpgradeLevel);
+                SetModel(_data.UpgradeLevel);
+                SetButton(_data.UpgradeLevel);
+            }
+        }
+
+        public void Initialize(BuildingData data)
+        {
+            _data = data;
+
+            if (_data.IsUnlock)
+            {
+                SetModel(_data.UpgradeLevel);
+                SetButton(_data.UpgradeLevel);
+            }
+            else
+            {
+                SetButton(-1);
+            }
+
+            OnMoneyChanged(GameManager.Instance.Money);
+        }
+
+        public BuildingData GetData()
+        {
+            return _data;
         }
 
         private void SetButton(int level)
         {
-            if (level == 0)
+            if (level == -1)
             {
                 _button.UpdateButton(BUY_TEXT, config.UnlockPrice);
             }
             else
             {
-                _button.UpdateButton(UPGRADE_TEXT, GetCost(level));
+                if (config.IsUpgradeExist(_data.UpgradeLevel + 1))
+                {
+                    _button.UpdateButton(UPGRADE_TEXT, GetCost(level + 1));
+                }
+                else
+                {
+                    _button.gameObject.SetActive(false);
+                }
             }
         }
 
-        private void SetModel(int level)
+        private async void SetModel(int level)
         {
             var upgradeConfig = config.GetUpgrade(level);
             if (_currentModel)
             {
-                Destroy(_currentModel);
+                Addressables.ReleaseInstance(_currentModel);
             }
 
-            _currentModel = Instantiate(upgradeConfig.Model, modelPoint);
+            _currentModel = await Addressables.InstantiateAsync(upgradeConfig.Model, modelPoint);
+
+            // if (_timerCor != null)
+            //     StopCoroutine(_timerCor);
+
+            if (_timerCor == null)
+                _timerCor = StartCoroutine(Timer());
+        }
+
+        private IEnumerator Timer()
+        {
+            while (true)
+            {
+                yield return new WaitForSeconds(DELAY);
+                GameManager.Instance.Money += config.GetUpgrade(_data.UpgradeLevel).ProcessResult;
+            }
         }
 
         private float GetCost(int level)

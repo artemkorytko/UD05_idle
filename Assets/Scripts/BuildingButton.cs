@@ -1,3 +1,4 @@
+using System;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
@@ -11,6 +12,8 @@ namespace DefaultNamespace
 
         private Button _button;
         private float _currentCost;
+
+        public event Action OnClickEvent;
 
         private void Awake()
         {
@@ -29,7 +32,7 @@ namespace DefaultNamespace
 
         private void OnClick()
         {
-            
+            OnClickEvent?.Invoke();
         }
 
         public void UpdateButton(string text, float cost)
@@ -39,9 +42,14 @@ namespace DefaultNamespace
             costText.text = _currentCost.ToString();
         }
 
-        public void SetState(bool isActive)
+        private void SetState(bool isActive)
         {
             _button.interactable = isActive;
+        }
+
+        public void OnMoneyValueChanged(float value)
+        {
+            SetState(_currentCost <= value);
         }
     }
 }
