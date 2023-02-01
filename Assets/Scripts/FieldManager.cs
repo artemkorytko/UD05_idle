@@ -31,5 +31,12 @@ namespace DefaultNamespace
 
             return data;
         }
+        
+        
+        
+        private void Singl() // просто метод как работет СинглТон
+        {
+            var a = GameManager.Instance.name; // правило двух точек (. .) больше желательно не использовать!! 
+        }
     }
 }

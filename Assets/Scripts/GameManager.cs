@@ -3,13 +3,31 @@ using UnityEngine;
 
 namespace DefaultNamespace
 {
-    public class GameManager : MonoBehaviour
+    public class GameManager : BaseSingleton<GameManager>
     {
-        private SaveSystem _saveSystem;
-        private FieldManager _fieldManager;
-
-
+        private SaveSystem _saveSystem;  
+        private FieldManager _fieldManager; 
         private GameData _gameData;
+        public event Action<float> OnManeyChanged;
+
+        public float Money
+        {
+            get => _gameData.Money;
+            set
+            {
+                if(value == _gameData.Money)
+                    return;
+                
+                if (value < 0)
+                {
+                    _gameData.Money = 0;
+                }
+
+                _gameData.Money = (float) Math.Round(value, 2);
+                OnManeyChanged?.Invoke(_gameData.Money);
+            }
+        }
+
         private void Awake()
         {
             _saveSystem = GetComponent<SaveSystem>();

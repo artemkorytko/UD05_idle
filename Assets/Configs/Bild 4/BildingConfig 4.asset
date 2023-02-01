@@ -12,9 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: adf3a18ebe164840b17d188901d9e84b, type: 3}
   m_Name: BildingConfig 4
   m_EditorClassIdentifier: 
-  unlockPrice: 1000
-  startUpgradeCost: 500
-  costMultiplayer: 200
+  unlockPrice: 150
+  startUpgradeCost: 50
+  costMultiplayer: 20
   upgrade:
   - {fileID: 11400000, guid: da24beb1023ea0e4ea83afadaf40680c, type: 2}
   - {fileID: 11400000, guid: da7ec323b553dc648a54c3da993bf588, type: 2}

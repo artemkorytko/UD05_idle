@@ -4,7 +4,7 @@
     {
         public const int BildCount = 5;
         
-        public float Money = 60f;
+        public float Money = 1000f;
         public BildingData[] BildingsData;
 
         public GameData()

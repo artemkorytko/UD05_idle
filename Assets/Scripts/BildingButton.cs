@@ -13,7 +13,7 @@ namespace DefaultNamespace
         private Button _button;
         private float _curretCost;
 
-        public event Action OnClickEvent;
+        public event Action OnClickUpgrade;
 
         private void Awake()
         {
@@ -32,7 +32,7 @@ namespace DefaultNamespace
 
         private void OnClick()
         {
-            OnClickEvent?.Invoke();
+            OnClickUpgrade?.Invoke();
         }
 
         public void UpdateButton(string text, float cost)
@@ -42,9 +42,14 @@ namespace DefaultNamespace
             costText.text = _curretCost.ToString();
         }
 
-        public void SetState(bool isActive)
+        private void SetState(bool isActive)
         {
             _button.interactable = isActive;
+        }
+
+        public void OnManeyValueChanged(float value)
+        {
+            SetState(_curretCost <= value);
         }
     }
 }

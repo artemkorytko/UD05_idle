@@ -14,8 +14,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   unlockPrice: 50
   startUpgradeCost: 35
-  costMultiplayer: 90
+  costMultiplayer: 25
   upgrade:
   - {fileID: 11400000, guid: 23f771ec99c78564f856b194a3677b09, type: 2}
   - {fileID: 11400000, guid: 05d168748811e2e4ebf7b1f05599fa18, type: 2}
   - {fileID: 11400000, guid: 42e29139024d98e449bbcd55ee78c802, type: 2}
+  - {fileID: 11400000, guid: cba9c0038dff87f4eb22d3604e8e601b, type: 2}
