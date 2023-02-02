@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "554242194132",
+    "firebase_url": "https://ud05-idle-f8c9a-default-rtdb.europe-west1.firebasedatabase.app",
+    "project_id": "ud05-idle-f8c9a",
+    "storage_bucket": "ud05-idle-f8c9a.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:554242194132:android:a65d48626f02070fbf5941",
+        "android_client_info": {
+          "package_name": "com.teachMeSkills.UD05_idle"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "554242194132-jvs30eshko9h78fktt4vkvt5bc5gsoa0.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCY6nmcYjwYEDLDew7XBALfaglt8UFlXzs"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "554242194132-jvs30eshko9h78fktt4vkvt5bc5gsoa0.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
