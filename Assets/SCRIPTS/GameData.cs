@@ -5,7 +5,7 @@ using UnityEngine;
 //----- тут про все здания и общее кол-во баблишка
 namespace DefaultNamespace
 {
-    // [Serializable] // для сохранения в Бинарник
+    [Serializable] // для сохранения в Бинарник
     public class GameData
     {
         

@@ -1,7 +1,7 @@
 using System;
 using Cysharp.Threading.Tasks;
 
-
+/*
 namespace DefaultNamespace
 {
     public interface ISaveSystem
@@ -12,7 +12,7 @@ namespace DefaultNamespace
         
         // можно - МЕТОДЫ, СВВАб ИМЕНТЫ
         
-        /*
+        
         
         public GameData GameData { get;  }  // на чтение
 
@@ -20,6 +20,7 @@ namespace DefaultNamespace
         public void SaveData();
         public UniTask<bool> LoadData();
         
-        */
+        
     }
 }
+*/

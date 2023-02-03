@@ -4,8 +4,8 @@ using System.Security.Cryptography.X509Certificates;
 // класс хранит инфу про одно отдельное здание
 namespace DefaultNamespace
 {
-    //[Serializable]
-
+    [Serializable]
+    
     public class BuildingsData
     {
         // хранит инфу об одном заднии
@@ -23,7 +23,7 @@ namespace DefaultNamespace
             IsUnlocked = false;
             UpgradeLevel = 0;
         }
-        
+
         // а это записывает если передали снаружи
         // кастомный конструктор, ему передаем значения для полей
         public BuildingsData(bool isUnlocked, int level)

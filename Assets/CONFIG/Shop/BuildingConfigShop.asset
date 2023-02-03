@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: BuildingConfigShop
   m_EditorClassIdentifier: 
   buildingName: Shop
-  unlockPrice: 10
+  unlockPrice: 50
   startUpgradeCost: 100
   costMultiplier: 3
   upgrades:

@@ -33,11 +33,13 @@ namespace DefaultNamespace
         }
 
 
-        public void StopBuildingTimers()
+        public void StopBuildingTimers() // и разбетонировать зааодно ЕСЛИ там забетонировано...
         {
             for (int i = 0; i < _buildings.Length; i++)
             {
                 _buildings[i].StopThisTimer();
+                
+                _buildings[i]._button.Razbetonirovat();
             }
         }
 

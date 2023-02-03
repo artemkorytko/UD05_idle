@@ -1,9 +1,10 @@
 using System;
-using System.IO;
-using System.Runtime.Serialization.Formatters.Binary;
 using Cysharp.Threading.Tasks;
 using UnityEngine;
 
+// для 2 способа
+using System.IO; //!!!!!! для работы с файлами
+using System.Runtime.Serialization.Formatters.Binary; // бинарники!!!
 
 //======================================== ВАРИАНТ 2 =======================================================
 // за пределами проекта контролируя пусть

@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: BuildingConfigOffice
   m_EditorClassIdentifier: 
   buildingName: Office
-  unlockPrice: 10
+  unlockPrice: 40
   startUpgradeCost: 100
   costMultiplier: 3
   upgrades:

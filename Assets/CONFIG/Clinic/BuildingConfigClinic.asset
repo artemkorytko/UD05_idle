@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: BuildingConfigClinic
   m_EditorClassIdentifier: 
   buildingName: Clinic
-  unlockPrice: 10
+  unlockPrice: 80
   startUpgradeCost: 100
   costMultiplier: 5
   upgrades:

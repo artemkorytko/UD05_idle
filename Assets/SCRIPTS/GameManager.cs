@@ -13,9 +13,9 @@ namespace DefaultNamespace
     {
         public static GameManager Instance { get; private set; }
 
-        private SaveSystem _saveSystem;
+        private SaveSystemJSON _saveSystem;
         private FieldMaganer _fieldManager;
-        
+
 
         private GameData _gameData; //вот это как бы массив :///
 
@@ -24,37 +24,37 @@ namespace DefaultNamespace
         //------- стеки для undo и таймпасс
         private Stack<GameData> _undoStack;
         private Stack<GameData> _timepassStack;
-        
+
         private GameData _prewsnap;
         private GameData _snap;
 
-         public event Action<float> OnMoneyChanged;
+        public event Action<float> OnMoneyChanged;
 
-         
-         //---------------------------------------------------------------------------------
-         public float Money
-         {
-             get => _gameData.Money;
 
-             //----- !! эту переменную меняют здания !!------------------------
-             set // записывать сюда значение - под контролем читать и записывать 
-             {
-                 if (value == _gameData.Money)
-                     return; // ниче не делаем если денег столько и было
-                 
-                 // проверка шоб не отрицательное
-                 if (value < 0)
-                 {
-                     _gameData.Money = 0;
-                 }
-                 else _gameData.Money = (float)Math.Round(value, 2); // округлить
+        //---------------------------------------------------------------------------------
+        public float Money
+        {
+            get => _gameData.Money;
 
-                 // СОБЫТИЕ ПРОИСХОДИТ КОГДА МЕНЯЮТ ПЕРЕМЕННУЮ ИЗВНЕ, ДА????
-                 OnMoneyChanged?.Invoke(_gameData.Money); // и вот это будет value!
-             }
-         }
+            //----- !! эту переменную меняют здания !!------------------------
+            set // записывать сюда значение - под контролем читать и записывать 
+            {
+                if (value == _gameData.Money)
+                    return; // ниче не делаем если денег столько и было
 
-         private void Awake() // находим наши системы 
+                // проверка шоб не отрицательное
+                if (value < 0)
+                {
+                    _gameData.Money = 0;
+                }
+                else _gameData.Money = (float)Math.Round(value, 2); // округлить
+
+                // СОБЫТИЕ ПРОИСХОДИТ КОГДА МЕНЯЮТ ПЕРЕМЕННУЮ ИЗВНЕ, ДА????
+                OnMoneyChanged?.Invoke(_gameData.Money); // и вот это будет value!
+            }
+        }
+
+        private void Awake() // находим наши системы 
         {
             if (Instance == null)
             {
@@ -66,11 +66,10 @@ namespace DefaultNamespace
                 return;
             }
 
-            
-            
-            _saveSystem = GetComponent<SaveSystem>();
+
+            _saveSystem = GetComponent<SaveSystemJSON>();
             _fieldManager = GetComponentInChildren<FieldMaganer>();
-            
+
             _gamePanelFile = FindObjectOfType<GamePanel>();
 
             _undoStack = new Stack<GameData>();
@@ -81,8 +80,7 @@ namespace DefaultNamespace
         {
             if (Instance != this)
                 return;
-            
-            
+
             _saveSystem.Initialize(); // обращаемся к сейв системе, она ищет ключ и грузит дату - дoad data
             _gameData = _saveSystem.Data; // get data - получить ссылку на нашу дату из сейв системы
 
@@ -96,7 +94,6 @@ namespace DefaultNamespace
                 _gamePanelFile.SetMoneyOnPanel(_gameData.Money);
             }
             else _gameData = new GameData();
-
         }
 
 
@@ -228,15 +225,16 @@ namespace DefaultNamespace
         //=================== для полного ресета накликанного =========================================================
         public void ResetAllSaved()
         {
-            _saveSystem.ResetSaved(); 
+            _saveSystem.ResetSaved();
             _gameData = new GameData(); // очистит плеерпрефс
             _saveSystem.SaveData(_gameData); // и сохранит пустой
-            
+
             //--------- больше НЕ РАБОТАЕТ! -----------------
             _fieldManager.Initialize(_gameData);
             _gamePanelFile.SetMoneyOnPanel(_gameData.Money);
             _fieldManager.StopBuildingTimers();
             
+
             // очистить стеки
             // EmptyAllStacks();
             // _saveSystem.SaveData(_gameData);

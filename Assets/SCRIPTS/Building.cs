@@ -22,13 +22,14 @@ namespace DefaultNamespace
         [SerializeField] private Transform modelPoint;
 
         // внимание: билдинг баттон!
-        private BuldingButton _button;
+        public BuldingButton _button;
 
         private GameObject _currentModel;
         private string _whatsit = null;
 
         private BuildingsData _data;
-        
+
+        private bool coroutineWasSet = false; // флаг для перезапуска корутин по ресету
 
         private Coroutine timerCor;
 
@@ -67,17 +68,17 @@ namespace DefaultNamespace
             if (config.DoesUgradeExist(_data.UpgradeLevel + 1))
             {
                 RequestSnapshot(); // мое
-                
-                
+
+
                 _data.UpgradeLevel++; // !!!!!!!! ПОДНИМАЕМ ЛЕВЕЛ
-                
-                
+
+
                 // мы опять лезем в переменную денег в GM и меняем ее
                 GameManager.Instance.Money -= GetCost(_data.UpgradeLevel);
                 SetModel(_data.UpgradeLevel);
                 SetButton(_data.UpgradeLevel);
             }
-            
+
 
             /*
             //----------------- тут Д/з -------------------------
@@ -121,7 +122,7 @@ namespace DefaultNamespace
         {
             // присваиваем на старте
             _data = data;
-            
+
             // модель устанавливается, если 
             if (_data.IsUnlocked)
             {
@@ -136,11 +137,11 @@ namespace DefaultNamespace
                 ////----- УДАЛЯЕТ ЗДАНИЯ ПРИ РЕСЕТЕ -----
                 if (_currentModel)
                     Addressables.ReleaseInstance(_currentModel); // удалить здание
-                
+
                 //_button.Razbetonirovat(); // разбетонировать кнопку, если была забетонирована
-                
             }
 
+            // !!!!!!!!
             OnMoneyChanged(GameManager.Instance.Money);
         }
 
@@ -171,24 +172,23 @@ namespace DefaultNamespace
                     // _button.Zabetonirovat();
                     _button.UpdateButton(UPGRADE_TEXT, GetCost(level + 1), _whatsit);
                 }
-
-                if (!config.DoesUgradeExist(_data.UpgradeLevel + 1))
+                
+                else
                 {
                     SayMaxCool();
                     _button.Zabetonirovat();
                 }
-
             }
         }
 
-        
+
         private void SayMaxCool()
         {
-             int levelhere = _data.UpgradeLevel;
+            int levelhere = _data.UpgradeLevel;
             //----- если здание уже круче некуда 
-             Debug.Log(" Здание круче некуда");
-             float max = config.upgrades[levelhere].ProcessResult;
-             _button.UpdateButtonToMax(max, _whatsit);
+            Debug.Log(" Здание круче некуда");
+            float max = config.upgrades[levelhere].ProcessResult;
+            _button.UpdateButtonToMax(max, _whatsit);
         }
 
 
@@ -218,22 +218,31 @@ namespace DefaultNamespace
             // ?????????????-------------- где-то тут не грузит новые модели в undo  ---------------????????????????
             _currentModel = await Addressables.InstantiateAsync(upgradeConfig.Model, modelPoint);
 
-                // моё: принудительно ставлю на место
-                _currentModel.transform.position = modelPoint.transform.position;
+            // моё: принудительно ставлю на место
+            _currentModel.transform.position = modelPoint.transform.position;
 
-                // высчитывает, сколько денег приносит здание на этом уровне
-                HowMuchMoneyDoIEarn();
+            // высчитывает, сколько денег приносит здание на этом уровне
+            HowMuchMoneyDoIEarn();
 
 
-                // если стоит здание - то зарабатываем деньги, пока не задестроим
-                //================= ТАЙМЕР  ========================== ТАЙМЕР ==========================
+            // если стоит здание - то зарабатываем деньги, пока не задестроим
+            //================= ТАЙМЕР  ========================== ТАЙМЕР ==========================
+
+            if (!coroutineWasSet) // если еще не заупскали корутину (ваще только вошли)
+            {
                 if (timerCor == null)
                     timerCor = StartCoroutine(Timer());
+            }
+            else // это после ресета
+            {
+                
+                StartCoroutine(Timer());
+                Debug.Log("После ресета вошло в старт корутину");
+            }
 
-                // или так:
-                // if (_timerCor != null)
-                //     StopCoroutine(_timerCor);
-            
+            // или так:
+            // if (_timerCor != null)
+            //     StopCoroutine(_timerCor);
 
 
             //===========! если надо грузить новые объекты, пока юзер тупит в сплеш "нажмите следующее" !=============
@@ -251,9 +260,12 @@ namespace DefaultNamespace
         public void StopThisTimer()
         {
             if (timerCor != null)
-            { StopCoroutine(timerCor);}
+            {
+                StopCoroutine(timerCor);
+            }
             else
-            {Debug.Log($"{_whatsit} можно было не останавливать");
+            {
+                Debug.Log($"{_whatsit} можно было не останавливать");
             }
         }
 
@@ -278,7 +290,7 @@ namespace DefaultNamespace
 
                 // GameManager.Instance.Money += config.GetUpgrade(_data.UpgradeLevel).ProcessResult;
                 // ????? получается каждое здание каждую секунду дергает конфиг передавая туда свой левел? :/
-                
+
                 // переписала:
                 GameManager.Instance.Money += _howMuchEarn;
             }
@@ -302,7 +314,7 @@ namespace DefaultNamespace
             // посылать событие в кнопку, только если есть уровни впереди
             // config.upgrades.Length = 3, поэтому -1 блин
             if (_data.UpgradeLevel <= config.upgrades.Length - 1)
-            {   
+            {
                 // идет в кнопку и там проверяется не сделать ли активной кнопку
                 _button.OnMoneyValueChanged(value);
             }
