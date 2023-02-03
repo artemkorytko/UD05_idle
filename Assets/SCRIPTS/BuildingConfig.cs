@@ -1,3 +1,5 @@
+using System;
+using Unity.VisualScripting;
 using UnityEngine;
 
 namespace DefaultNamespace
@@ -23,20 +25,27 @@ namespace DefaultNamespace
         public float CostMultiplier => costMultiplier;
         public string BuildingName => buildingName;
 
+        public event Action MaxCool; 
         //  возвращает конфиг, в котором моделька и сколько здание приносит денег
         public UpgradeConfig GetUpgrade(int index)
         {
             // не больше ли чем у нас ступеней
-            //------------- ТУТ ОШИБКА "ВНЕ МАССИВА" ЕСЛИ АПГРЕЙДИМ ВЫШЕ КОЛИЧЕСТВА КОНФИГОВ У ЗДАНИЯ
-            if (index >= upgrades.Length) return null;
+            //--------- ТУТ ОШИБКА "ВНЕ МАССИВА" ЕСЛИ АПГРЕЙДИМ ВЫШЕ КОЛИЧЕСТВА КОНФИГОВ У ЗДАНИЯ
+            if (index >= upgrades.Length )
+            {
+                MaxCool?.Invoke(); // идет в здание и оттуда пишет в кнопке что круче некуда
+                return null;
+            }
+            
             // if (index >= upgrades.Length) Debug.Log( $"index стал {index}" );
 
             return upgrades[index]; 
         }
 
-        public bool IsUgradeExist(int index)
+        public bool DoesUgradeExist(int index)
         {
-            return index >= 0 && index <= upgrades.Length;
+            return index >= 0 && index <= upgrades.Length -1;
+            // без -1 покупался несуществующий апгрейд! 
         }
     }
 }

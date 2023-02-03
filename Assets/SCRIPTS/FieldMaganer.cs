@@ -15,24 +15,32 @@ namespace DefaultNamespace
 
         private void Awake()
         {
-            // ------- тут проблема
             // находим их ВСЕХ
             _buildings = GetComponentsInChildren<Building>();
         }
 
-        //--------------- получаем инфу GameData из Start() в GameManager и раздает массив по зданиям ---------------
+        //---------- получаем инфу GameData из Start() в GameManager и раздает массив по зданиям ---------------
         public void Initialize(GameData gameData)
         {
             // получаем
             var data = gameData.BuildingsData;
 
             // раздаем по зданиям и говорим им инициализироваться, передавая им дату
-            // for (int i = 0; i < _buildings.Length; i++)
             for (int i = 0; i < _buildings.Length; i++)
             {
-                _buildings[i].Initialize(data[i]);
+                 _buildings[i].Initialize(data[i]);
             }
         }
+
+
+        public void StopBuildingTimers()
+        {
+            for (int i = 0; i < _buildings.Length; i++)
+            {
+                _buildings[i].StopThisTimer();
+            }
+        }
+
 
         //--------------- полученме текущее состояние со всемх зданий -----------------------------
         // собираем инфу и передаем сейв системе

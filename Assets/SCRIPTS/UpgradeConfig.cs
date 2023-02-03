@@ -14,6 +14,7 @@ namespace DefaultNamespace
         // окно: Window > Asset Manager > Groups
         [SerializeField] private AssetReference model;
         
+        
         [SerializeField] private int processResult;
 
         // без Adressable было:

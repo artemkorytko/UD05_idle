@@ -1,45 +1,45 @@
 using System;
 using TMPro;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.UIElements;
+using UnityEngine.UI;
+using Button = UnityEngine.UI.Button;
 
 //----------------- это игровая панель, висит на GamePanel ---------------------------
+// кнопка Reset - на нее навешена ResetALL из GM в инспекторе
+
 namespace DefaultNamespace
 {
     public class GamePanel : MonoBehaviour
     {
         [SerializeField] private TextMeshProUGUI _moneyfield; 
-        
-        // public Button _resetbutton;
-        // public Button _undobutton;
         //private GameManager _gameManagerfile; 
+        
 
-        private float _howmuchmoneyinpanel;
-
+        //---------------------------------------------------------------------
         private void Awake()
         {
-            //_gameManagerfile = FindObjectOfType<GameManager>();
+            //GameManager.Instance.OnMoneyChanged += SetMoneyOnPanel;
+            // паттерн Singleton локальная версия
         }
 
         private void Start()
         {
-           
+            GameManager.Instance.OnMoneyChanged += SetMoneyOnPanel;
         }
-
-        private void ResetClicked()
+        
+        
+        public void SetMoneyOnPanel(float value)
         {
-            // реализовано через юнити onClick
-            // var xxx = _gameManagerfile.GetComponent<SaveSystem>();
-            // xxx.ResetAllSaved();
+            // вызывается GM если здание поменяло в нем переменную
+            _moneyfield.text = $"Money: ${value}";
         }
 
-
-        public void SetMoneyOnPanel(float moneyfromGameManager)
+        private void OnDestroy()
         {
-            _howmuchmoneyinpanel = moneyfromGameManager;
-            _moneyfield.text = $"Money: ${_howmuchmoneyinpanel.ToString()}";
-            
-            // панель посылает переменную 
+            GameManager.Instance.OnMoneyChanged -= SetMoneyOnPanel;
         }
+
     }
 }

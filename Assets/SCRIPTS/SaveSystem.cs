@@ -1,6 +1,10 @@
 using System;
 using UnityEngine;
 
+// для 2 способа
+using System.IO; //!!!!!! для работы с файлами
+using System.Runtime.Serialization.Formatters.Binary; // бинарники!!!
+
 // висит на пустом объекте GameManager
 // отвечает только за сохранение инфы - загрузить, выгрузить
 
@@ -11,7 +15,9 @@ using UnityEngine;
 
 namespace DefaultNamespace
 {
-    public class SaveSystem : MonoBehaviour
+    // для интерфейса
+    // public class SaveSystem : MonoBehaviour, ISaveSystem
+   public class SaveSystem : MonoBehaviour
     {
         // ключ для PlayerPrefs
         private const string SAVE_KEY = "GameData";
@@ -20,14 +26,14 @@ namespace DefaultNamespace
         private GameData _gameData;
 
         private FieldMaganer _fieldManagerFile;
+        
         // вынесли ее в публичное поле заинкапуслировавши:
         public GameData Data => _gameData;
-
+        
+        // private static string Path = Application.persistentDataPath + "/saveData.data";
         
         public void Initialize() // было private void Start()
         {
-            //------------*** РЕСЕТ ***-------------------
-            //  ResetAllSaved();
             _fieldManagerFile = FindObjectOfType<FieldMaganer>();
             
             // проверяем, если мы уже что-то по этому пути сохранили
@@ -61,11 +67,10 @@ namespace DefaultNamespace
         }
         
         //--------------------------- сохраняем -------------------------------------------------------------------
-        public void SaveData()
+        public void SaveData(GameData _gameData)
         {
             // создать контейнер для сохранения - надо хранить: 1) разблок/заблок 2) уровень
-
-            // "сериализовать"
+            
             // передаем объект любого типа, который хотим привести к JSON
             string jsonData =  JsonUtility.ToJson(_gameData);
             // вернет его записанный строкой, текстовый файл
@@ -75,12 +80,14 @@ namespace DefaultNamespace
         }
 
         
+
+
         //--------------------------- для полного ресета накликанного ----------------------------------------------
-        public void ResetAllSaved()
+        public void ResetSaved()
         {
-            _gameData = new GameData();
-            //--------- РАБОТАЕТ! -----------------
-            _fieldManagerFile.Initialize(_gameData);
+            // PlayerPrefs.DeleteAll();
+           _gameData = new GameData();
+           SaveData(_gameData);
         }
 
     }

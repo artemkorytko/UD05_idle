@@ -1,4 +1,5 @@
 using System;
+using System.Reflection.Emit;
 using System.Security.Cryptography.X509Certificates;
 using TMPro;
 using UnityEngine;
@@ -35,6 +36,7 @@ namespace DefaultNamespace
         private void OnClick()
         {
             OnClickEvent?.Invoke();
+            // идет в билдинг
         }
         
         
@@ -47,11 +49,17 @@ namespace DefaultNamespace
             costText.text  = "$" + _currentCost.ToString();
         }
         
-         // активна или не активна - если мало бабла - меняет состояние кнопки
-        public void SetState(bool isActive)
+        public void UpdateButtonToMax(float dohod, string whatsit)
         {
-            _button.interactable = isActive;
+            // когда обновилась
+            titleText.text =  $"So cool!" ;
+            costText.text = $"Your {whatsit} brings {dohod}";
+            //SetState(false); // бетонирует
+
+            Zabetonirovat();
         }
+        
+        
 
         public void Zabetonirovat()
         {
@@ -61,6 +69,22 @@ namespace DefaultNamespace
         public void Razbetonirovat()
         {
             _button.interactable = true;
+        }
+
+        // вызывается зданием, если денег хватает - делает активным
+        public void OnMoneyValueChanged(float value) // валуе 
+        {
+            // меньше равно
+            SetState(_currentCost <= value);
+            // если цена <= бабла в наличии -- true
+            // если цена > бабла в наличии -- false
+        }
+
+        // активна или не активна - если мало бабла - меняет состояние кнопки
+        private void SetState(bool isActive)
+        {
+            
+            _button.interactable = isActive;
         }
 
         //---------------------------------------------------------------------------
