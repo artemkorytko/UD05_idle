@@ -232,10 +232,10 @@ namespace DefaultNamespace
             {
                 if (timerCor == null)
                     timerCor = StartCoroutine(Timer());
+                coroutineWasSet = true;
             }
             else // это после ресета
             {
-                
                 StartCoroutine(Timer());
                 Debug.Log("После ресета вошло в старт корутину");
             }
