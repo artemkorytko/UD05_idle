@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Security.Cryptography;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
@@ -43,9 +42,14 @@ namespace DefaultNamespace
             costText.text = _currentCost.ToString();
         }
 
-        public void SetState(bool isActive)
+        private void SetState(bool isActive)
         {
             _button.interactable = isActive;
+        }
+        
+        public void OnMoneyValueChanged(float value)
+        {
+            SetState(_currentCost <= value);
         }
     }
 }
