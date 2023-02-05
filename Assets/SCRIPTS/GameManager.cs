@@ -97,7 +97,7 @@ namespace DefaultNamespace
         }
 
 
-        //--------------------------- конец игры ---
+        //--------------------------- конец игры -----------------------------------------------
         private void OnDestroy()
         {
             // обращаемся к FieldManager, он соберет дату в массив со всех зданий, вернет обратно
@@ -112,8 +112,7 @@ namespace DefaultNamespace
         }
 
 
-        //============= стек для отмены действий =====================================
-        //----------- ну работало же нормально!!!! -----------------------------------
+        //============= стек для отмены действий =======================================================================
         public void Snapshot() // по любому нажатию кнопки на здании, снимает ДО замены здания
         {
             //как задать уникальное имя
@@ -225,16 +224,14 @@ namespace DefaultNamespace
         //=================== для полного ресета накликанного =========================================================
         public void ResetAllSaved()
         {
+            _fieldManager.StopBuildingTimers();
             _saveSystem.ResetSaved();
             _gameData = new GameData(); // очистит плеерпрефс
             _saveSystem.SaveData(_gameData); // и сохранит пустой
-
-            //--------- больше НЕ РАБОТАЕТ! -----------------
+            
             _fieldManager.Initialize(_gameData);
             _gamePanelFile.SetMoneyOnPanel(_gameData.Money);
-            _fieldManager.StopBuildingTimers();
             
-
             // очистить стеки
             // EmptyAllStacks();
             // _saveSystem.SaveData(_gameData);

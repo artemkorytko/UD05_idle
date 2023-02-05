@@ -69,9 +69,7 @@ namespace DefaultNamespace
             {
                 RequestSnapshot(); // мое
 
-
                 _data.UpgradeLevel++; // !!!!!!!! ПОДНИМАЕМ ЛЕВЕЛ
-
 
                 // мы опять лезем в переменную денег в GM и меняем ее
                 GameManager.Instance.Money -= GetCost(_data.UpgradeLevel);
@@ -81,7 +79,7 @@ namespace DefaultNamespace
 
 
             /*
-            //----------------- тут Д/з -------------------------
+            //----------------- тут Д/з которое писала сама, но не стыковалось с версией АК -------------------------
             // работаете с кнопочкой, меняете состояние - у нее есть метод который делает неактивной
             if (_data.IsUnlocked) // если разлочено и здание стоит
             {
@@ -167,16 +165,13 @@ namespace DefaultNamespace
             else
             {
                 if (config.DoesUgradeExist(_data.UpgradeLevel + 1))
-                    //if (level >= config.upgrades.Length - 1) // ЫЫЫЫЫЫ!!!!
                 {
-                    // _button.Zabetonirovat();
                     _button.UpdateButton(UPGRADE_TEXT, GetCost(level + 1), _whatsit);
                 }
-                
+
                 else
                 {
                     SayMaxCool();
-                    _button.Zabetonirovat();
                 }
             }
         }
@@ -189,6 +184,10 @@ namespace DefaultNamespace
             Debug.Log(" Здание круче некуда");
             float max = config.upgrades[levelhere].ProcessResult;
             _button.UpdateButtonToMax(max, _whatsit);
+
+            _button.enabled = false;
+            Debug.Log("Третье бетонирование");
+            // %%%%%%%%%%%%%%%%%%%%%%%%%%%%% йее здесь %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
         }
 
 
@@ -197,10 +196,13 @@ namespace DefaultNamespace
         private async void SetModel(int level)
         {
             var upgradeConfig = config.GetUpgrade(level); // модельку и кол-во денег, которые приносит
-
+            
+            
             // если там уже есть здание то удалить его ПОЛЮБОМУ
             if (_currentModel)
             {
+                StopThisTimer();
+                
                 // без Adressable было:  Destroy(_currentModel);
 
                 // теперь чтобы Adressabl-ы знали что память можно освободить, пишем (не асинхронное)
@@ -227,19 +229,21 @@ namespace DefaultNamespace
 
             // если стоит здание - то зарабатываем деньги, пока не задестроим
             //================= ТАЙМЕР  ========================== ТАЙМЕР ==========================
-
-            if (!coroutineWasSet) // если еще не заупскали корутину (ваще только вошли)
+            
+            
+            if (!coroutineWasSet) // если еще не заупскали корутину ( только вошли в игру)
             {
+                coroutineWasSet = true; // флаг 
                 if (timerCor == null)
                     timerCor = StartCoroutine(Timer());
-                coroutineWasSet = true;
             }
-            else // это после ресета
+            else // это после ресета, перезапускаем корутину
             {
-                StartCoroutine(Timer());
-                Debug.Log("После ресета вошло в старт корутину");
+                timerCor = StartCoroutine(Timer());
             }
-
+            
+            
+            
             // или так:
             // if (_timerCor != null)
             //     StopCoroutine(_timerCor);
@@ -257,15 +261,17 @@ namespace DefaultNamespace
             //=========================================================================================================
         }
 
-        public void StopThisTimer()
+        public void StopThisTimer() // GM по ресету просит FM всех перебрать и поостанавливать
         {
             if (timerCor != null)
             {
                 StopCoroutine(timerCor);
+                Debug.Log($"{_whatsit} -- STOP !!!");
             }
             else
             {
                 Debug.Log($"{_whatsit} можно было не останавливать");
+                // некоторые успевают сами остановиться, некоторые - нет
             }
         }
 
@@ -277,7 +283,7 @@ namespace DefaultNamespace
         }
 
 
-        // корутина живая пока жив объект
+        // корутина живая пока жив объект ( при ресете - он никуда не деется, однако)
         private IEnumerator Timer()
         {
             while (true)
@@ -302,7 +308,7 @@ namespace DefaultNamespace
         //=========================================================================================================
 
 
-        // это....
+        // Считает цену за апгрейд, как - одному Аллаху известно
         private float GetCost(int level)
         {
             return (float)System.Math.Round(config.StartUpgradeCost * Mathf.Pow(config.CostMultiplier, level), 2);
@@ -312,12 +318,13 @@ namespace DefaultNamespace
         private void OnMoneyChanged(float value)
         {
             // посылать событие в кнопку, только если есть уровни впереди
-            // config.upgrades.Length = 3, поэтому -1 блин
-            if (_data.UpgradeLevel <= config.upgrades.Length - 1)
+            // config.upgrades.Length = 3, поэтому -2 !!!! 0,1,2
+            if (_data.UpgradeLevel <= config.upgrades.Length - 2)
             {
                 // идет в кнопку и там проверяется не сделать ли активной кнопку
                 _button.OnMoneyValueChanged(value);
             }
+            // else ничего, иначе будет каждую секунду бетонирвать
         }
 
 
