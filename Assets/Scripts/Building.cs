@@ -1,9 +1,6 @@
 ﻿using System;
 using System.Collections;
-using System.Collections.Generic;
 using Cysharp.Threading.Tasks;
-using Unity.VisualScripting;
-using UnityEditor.Build.Content;
 using UnityEngine;
 using UnityEngine.AddressableAssets;
 
@@ -140,8 +137,6 @@ namespace DefaultNamespace
         {
            return (float) System.Math.Round(config.StartUpgradeCost * Mathf.Pow(config.CostMultiplier, level), 2);
         }
-        
-
         
     }
 }

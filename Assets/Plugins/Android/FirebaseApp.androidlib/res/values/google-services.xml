@@ -1,0 +1,11 @@
+<?xml version='1.0' encoding='utf-8'?>
+<resources xmlns:tools="http://schemas.android.com/tools" tools:keep="@string/firebase_database_url,@string/gcm_defaultSenderId,@string/google_storage_bucket,@string/project_id,@string/google_api_key,@string/google_crash_reporting_api_key,@string/google_app_id,@string/default_web_client_id">
+  <string name="firebase_database_url" translatable="false">https://ud05-idle-ecb65-default-rtdb.europe-west1.firebasedatabase.app</string>
+  <string name="gcm_defaultSenderId" translatable="false">895926858313</string>
+  <string name="google_storage_bucket" translatable="false">ud05-idle-ecb65.appspot.com</string>
+  <string name="project_id" translatable="false">ud05-idle-ecb65</string>
+  <string name="google_api_key" translatable="false">AIzaSyAX784WXXIp9EWOTGDJC_dbmu-bcHSe9us</string>
+  <string name="google_crash_reporting_api_key" translatable="false">AIzaSyAX784WXXIp9EWOTGDJC_dbmu-bcHSe9us</string>
+  <string name="google_app_id" translatable="false">1:895926858313:android:071d222b27c8e3a6c88598</string>
+  <string name="default_web_client_id" translatable="false">895926858313-qv244ncjcsustnmvmcfme0imuf73fc2h.apps.googleusercontent.com</string>
+</resources>
