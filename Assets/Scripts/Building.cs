@@ -32,19 +32,19 @@ namespace DefaultNamespace
 
         private void Start()
         {
-            GameManager.Instance.OnMoneyChangend += OnMoneyChanged;
+            GameManager.Instance.OnMoneyChanged += OnMoneyChanged;
             _button.OnClickEvent += OnButtonClick;
         }
 
         private void OnDestroy()
         {
-            GameManager.Instance.OnMoneyChangend -= OnMoneyChanged;
+            GameManager.Instance.OnMoneyChanged -= OnMoneyChanged;
             _button.OnClickEvent -= OnButtonClick;
         }
 
         private void OnMoneyChanged(float value)
         {
-            _button.OnMoneyValueChaged(value);
+            _button.OnMoneyValueChanged(value);
         }
 
         private void OnButtonClick()
@@ -67,8 +67,6 @@ namespace DefaultNamespace
             }
         }
         
-        
-
         public void Initialize(BuildingData data)
         {
             _data = data;
@@ -124,7 +122,7 @@ namespace DefaultNamespace
             
             //_currentModel = Instantiate(upgradeConfig.Model, modelPoint);
             
-            if(_timerCor == null)
+            if (_timerCor == null)
                 _timerCor = StartCoroutine(Timer());
             
         }

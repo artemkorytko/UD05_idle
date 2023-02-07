@@ -12,7 +12,7 @@ namespace DefaultNamespace
 
         private GameData _gameData;
 
-        public event Action<float> OnMoneyChangend;
+        public event Action<float> OnMoneyChanged;
 
         public float Money
         {
@@ -28,7 +28,7 @@ namespace DefaultNamespace
                 }
 
                 _gameData.Money = (float)Math.Round(value, 2);
-                OnMoneyChangend?.Invoke(_gameData.Money);
+                OnMoneyChanged?.Invoke(_gameData.Money);
             }
         }
 
@@ -64,7 +64,8 @@ namespace DefaultNamespace
                 return;
 
             _gameData.BuildingsData = _fieldManager.GetBuildingData();
-            _saveSystem.SaveData();
+            _saveSystem.SaveDataToBin();
+            //_saveSystem.SaveDataToJson();
         }
     }
     

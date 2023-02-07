@@ -1,41 +1,69 @@
-﻿using System;
-using UnityEngine;
+﻿using UnityEngine;
+using System.IO;
+using System.Runtime.Serialization.Formatters.Binary;
+using Newtonsoft.Json;
 
 namespace DefaultNamespace
 {
     public class SaveSystem : MonoBehaviour
     {
         private const string SAVE_KEY = "GameData";
+        
         private GameData _gameData;
 
-        public GameData Data => _gameData;
+        public GameData Data { get; private set; }
 
         public void Initialize()
         {
-            if (PlayerPrefs.HasKey(SAVE_KEY))
+            // if (PlayerPrefs.HasKey(SAVE_KEY))
+            // {
+            //     LoadDataFromJson();
+            // }
+            string path = Application.persistentDataPath +"/saveData.data";
+            if (File.Exists(path))
             {
-                LoadData();
+               LoadDataFromBin(); 
             }
             else
             {
-                _gameData = new GameData();
+                Data = new GameData();
             }
         }
         
-        private void LoadData()
+        private void LoadDataFromJson()
         {
             string jsonData = PlayerPrefs.GetString(SAVE_KEY);
-            _gameData = JsonUtility.FromJson<GameData>(jsonData);
+            Data = JsonUtility.FromJson<GameData>(jsonData);
         }
 
-        public void SaveData()
+        public void SaveDataToJson()
         {
-            string jsonData = JsonUtility.ToJson(_gameData);
+            string jsonData = JsonUtility.ToJson(Data);
             PlayerPrefs.SetString(SAVE_KEY, jsonData);
         }
-        
-        
+
+        private void LoadDataFromBin()
+        {
+            string path = Application.persistentDataPath + "/saveData.data";
+            FileStream fileStream = new FileStream(path, FileMode.Open);
+            
+            BinaryFormatter converter = new BinaryFormatter();
+            Data= converter.Deserialize(fileStream) as GameData;
+            fileStream.Close();
+        }
+
+        public void SaveDataToBin()
+        {
+            string path = Application.persistentDataPath + "/saveData.data";
+            FileStream dataStream = new FileStream(path, FileMode.Create);
+
+            BinaryFormatter converter = new BinaryFormatter();
+            converter.Serialize(dataStream, Data);
+            dataStream.Close();
+        }
         
         
     }
+
+   
 }

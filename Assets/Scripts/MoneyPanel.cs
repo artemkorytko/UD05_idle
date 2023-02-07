@@ -16,12 +16,12 @@ namespace DefaultNamespace
 
         private void Start()
         {
-            GameManager.Instance.OnMoneyChangend += OnMoneyChanged; 
+            GameManager.Instance.OnMoneyChanged += OnMoneyChanged; 
         }
 
         private void OnDestroy()
         {
-            GameManager.Instance.OnMoneyChangend -= OnMoneyChanged;
+            GameManager.Instance.OnMoneyChanged -= OnMoneyChanged;
         }
 
         private void OnMoneyChanged(float value)

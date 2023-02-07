@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "895926858313",
+    "project_id": "ud05-idle-ecb65",
+    "storage_bucket": "ud05-idle-ecb65.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:895926858313:android:071d222b27c8e3a6c88598",
+        "android_client_info": {
+          "package_name": "com.Teistail.UD05_idle"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "895926858313-qv244ncjcsustnmvmcfme0imuf73fc2h.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAX784WXXIp9EWOTGDJC_dbmu-bcHSe9us"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "895926858313-qv244ncjcsustnmvmcfme0imuf73fc2h.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
