@@ -1,0 +1,37 @@
+{
+  "project_info": {
+    "project_number": "708452945423",
+    "firebase_url": "https://idledlidle-default-rtdb.europe-west1.firebasedatabase.app",
+    "project_id": "idledlidle",
+    "storage_bucket": "idledlidle.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:708452945423:ios:a9d7bf610e609839869d7a",
+        "android_client_info": {
+          "package_name": "com.PinkSharkApps.UD05-idle"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "708452945423-q7ddqq2m1iecmfis63dg0cpricj16df9.apps.googleusercontent.com"
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDMHWXFSMdANabJQbZh13u58lfY6_OfYdw"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 0
+        },
+        "appinvite_service": {
+          "status": 1
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

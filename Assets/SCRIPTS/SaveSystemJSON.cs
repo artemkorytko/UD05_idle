@@ -15,26 +15,28 @@ namespace DefaultNamespace
 {
     // для интерфейса
     // public class SaveSystem : MonoBehaviour, ISaveSystem
-    public class SaveSystemJSON : MonoBehaviour
+    
+    [Serializable]
+    public class SaveSystemJSON : ISaveSystem
     {
         // ключ для PlayerPrefs
         private const string SAVE_KEY = "GameData";
 
         // ссылка на GameData
-        private GameData _gameData;
+        private GameData gameGameData;
 
         private FieldMaganer _fieldManagerFile;
 
         // вынесли ее в публичное поле заинкапуслировавши:
-        public GameData Data => _gameData;
+        public GameData GameData => gameGameData;
 
         // private static string Path = Application.persistentDataPath + "/saveData.data";
 
         //public void Initialize() // было private void Start()
         // public UniTask Initialize(int value)
-        public void Initialize()
+        public UniTask Initialize(int value)
         {
-            _fieldManagerFile = FindObjectOfType<FieldMaganer>();
+            //_fieldManagerFile = FindObjectOfType<FieldMaganer>();
 
             // проверяем, если мы уже что-то по этому пути сохранили
             if (PlayerPrefs.HasKey(SAVE_KEY))
@@ -46,15 +48,16 @@ namespace DefaultNamespace
 
             else // там нету ничего, то создать пустую гейм-дату с нуля
             {
-                _gameData = new GameData();
+                gameGameData = new GameData(value);
                 // заиниченная дата
                 // ????????????????????? вот тут он пойдет в конcтруктор ????????????????????
             }
+            return UniTask.CompletedTask;
         }
 
         //-------------------------- достаем и приводим к нашему классу ------------------------------------------
         // public UniTask<bool> LoadData()
-        public void LoadData()
+        public UniTask<bool> LoadData()
         {
             // "десериализовать"
             // получаем строку и записываем в стринг
@@ -64,19 +67,21 @@ namespace DefaultNamespace
 
             // "парсить"
             // достать из джейсона. Указать в какой тип привести - тут надо распарсить в GameData
-            _gameData = JsonUtility.FromJson<GameData>(jsonData);
+            gameGameData = JsonUtility.FromJson<GameData>(jsonData);
             //return new UniTask<bool>(true);
+            
+            return new UniTask<bool>(true);
         }
 
         //--------------------------- сохраняем -------------------------------------------------------------------
-        public void SaveData(GameData _gameData)
+        public void SaveData()
         {
             // создать контейнер для сохранения - надо хранить: 1) разблок/заблок 2) уровень
 
             // передаем объект любого типа, который хотим привести к JSON
 
             // ТУТ НЕПРАВИЛЬНО РАБОТАЕТ, ОТРЕЗАЕТ ВСЕ КРОМЕ МАНИ!!!!!!!!
-            string jsonData = JsonUtility.ToJson(_gameData);
+            string jsonData = JsonUtility.ToJson(gameGameData);
 
             // эту строку сохраняем в PlayerPrefs
             PlayerPrefs.SetString(SAVE_KEY, jsonData);
@@ -87,8 +92,9 @@ namespace DefaultNamespace
         public void ResetSaved()
         {
             // PlayerPrefs.DeleteAll();
-            _gameData = new GameData();
-            SaveData(_gameData);
+            gameGameData = new GameData(666);
+            //SaveData(gameGameData);
+            SaveData();
         }
     }
 }

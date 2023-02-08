@@ -20,7 +20,7 @@ namespace DefaultNamespace
         //---------------------------------------------------------------------
         private void Awake()
         {
-            //GameManager.Instance.OnMoneyChanged += SetMoneyOnPanel;
+             GameManager.Instance.OnMoneyChanged += SetMoneyOnPanel;
             // паттерн Singleton локальная версия
         }
 

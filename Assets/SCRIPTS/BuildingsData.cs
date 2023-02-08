@@ -14,7 +14,7 @@ namespace DefaultNamespace
         // два поля в классе и дебажный козёл:
         public bool IsUnlocked;
         public int UpgradeLevel;
-        public String Kozel;
+        // public String Kozel;
 
         // 2 кастомных конструктора, которые инициализируют эти поля
         // эта фигня по умолчанию и команде new 

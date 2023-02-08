@@ -9,7 +9,7 @@ using System.Runtime.Serialization.Formatters.Binary; // бинарники!!!
 //======================================== ВАРИАНТ 2 =======================================================
 // за пределами проекта контролируя пусть
 // сохранение подходит для мобилок нормально
-/*
+
 namespace DefaultNamespace
 {
     [Serializable]
@@ -18,14 +18,18 @@ namespace DefaultNamespace
         private GameData gameGameData;
 
         public GameData GameData => gameGameData;
-        private string Path;
+        private static string Path;
+        
 
         public UniTask Initialize(int value)
         {
+            //----------------- путь --------------------------------
             Path = Application.persistentDataPath + "/saveData.data";
-             // или .bin .bat
+            // или .bin .bat
+            // путь тут ибо иначе не успеет вызваться
+            //-------------------------------------------------------
             
-            if (File.Exists(Path))
+            if (File.Exists(Path)) 
             {
                 LoadData();
             }
@@ -39,22 +43,32 @@ namespace DefaultNamespace
         public void SaveData()
         {
             FileStream dataStream = new FileStream(Path, FileMode.Create);
-             // create перезатрет если есть
+            // параметры: путь куда сохраняем, create перезатрет если есть
 
-            BinaryFormatter converter = new BinaryFormatter();
-            converter.Serialize(dataStream, gameGameData);
-            dataStream.Close();
+            BinaryFormatter converter = new BinaryFormatter(); // конвертирует в биты и байты
+            converter.Serialize(dataStream, gameGameData); // куда, кого
+            dataStream.Close(); // закрыть стрим
         }
 
         public UniTask <bool> LoadData()
         {
-            FileStream fileStream = new FileStream(Path, FileMode.Open);
+            FileStream fileStream = new FileStream(Path, FileMode.Open); 
+            // откуда, прочитать - открыть стрим
 
             BinaryFormatter converter = new BinaryFormatter();
+            
+            // записывает дату как GameData
             gameGameData = converter.Deserialize(fileStream) as GameData;
+            
             fileStream.Close();
             return new UniTask<bool>(true);
         }
+        
+        
+        public void ResetSaved()
+        { 
+            gameGameData = new GameData(444);
+            SaveData();
+        }
     }
 }
-*/

@@ -19,8 +19,9 @@ namespace DefaultNamespace
         public BuildingsData[] BuildingsData; // массив зданий, там внутри инты и булей, будет храниться по ключу BuildingData
         
         // конструктор инициализирует наш массив и заполняет дефолтной информацией
-        public GameData()
+        public GameData(int money)
         {
+            Money = money;
             // перебираем сколько у нас есть домов
             BuildingsData = new BuildingsData[BuildCount];
 

@@ -57,7 +57,6 @@ namespace DefaultNamespace
         {
             if (!_data.IsUnlocked) //если здание еще не купили
             {
-                RequestSnapshot(); // мое
                 _data.IsUnlocked = true;
                 GameManager.Instance.Money -= config.UnlockPrice;
                 SetButton(_data.UpgradeLevel);
@@ -67,8 +66,6 @@ namespace DefaultNamespace
 
             if (config.DoesUgradeExist(_data.UpgradeLevel + 1))
             {
-                RequestSnapshot(); // мое
-
                 _data.UpgradeLevel++; // !!!!!!!! ПОДНИМАЕМ ЛЕВЕЛ
 
                 // мы опять лезем в переменную денег в GM и меняем ее
@@ -77,42 +74,8 @@ namespace DefaultNamespace
                 SetButton(_data.UpgradeLevel);
             }
 
-
-            /*
-            //----------------- тут Д/з которое писала сама, но не стыковалось с версией АК -------------------------
-            // работаете с кнопочкой, меняете состояние - у нее есть метод который делает неактивной
-            if (_data.IsUnlocked) // если разлочено и здание стоит
-            {
-                // меньше равно штуков в массиве upgrades в билдинг конфиг!
-                // BuildingConfig xxx = new BuildingConfig();
-                if (_data.UpgradeLevel <= config.upgrades.Length)
-                {
-                    _data.Kozel = "2";
-                    RequestSnapshot(); //-----NEW пихаем в стек, который в GameManager
-                    _data.UpgradeLevel++;
-                    _data.Kozel = "22";
-                    Initialize(_data);
-                }
-            }
-            else // если НЕ разлочено, то разлочить и загрузить
-            {
-                _data.Kozel = "1";
-                RequestSnapshot(); //-----NEW пихаем в стек, который в GameManager
-                _data.IsUnlocked = true;
-                _data.Kozel = "11";
-                Debug.Log($" Нажалось, isUnlocked = {_data.IsUnlocked}");
-                _gameManagerFile.KozelDebug();
-                Initialize(_data);
-            }
-
-            _gameManagerFile.KozelDebug();
-            */
         }
 
-        private void RequestSnapshot() //-----NEW идет пихать в стек, который в GameManager
-        {
-            GameManager.Instance.Snapshot();
-        }
 
 
         // --------- это из филд менеджера на старте геймменеджера -----

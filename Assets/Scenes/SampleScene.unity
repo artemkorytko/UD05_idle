@@ -985,19 +985,7 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1623661633}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 802977188}
-        m_TargetAssemblyTypeName: DefaultNamespace.GameManager, Assembly-CSharp
-        m_MethodName: Timepass
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
 --- !u!114 &1623661633
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1433,19 +1421,7 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 2128497669}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 802977188}
-        m_TargetAssemblyTypeName: DefaultNamespace.GameManager, Assembly-CSharp
-        m_MethodName: Undo
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
 --- !u!114 &2128497669
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1539,5 +1515,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    - target: {fileID: 7410276597102333531, guid: f32ecf159c07c4bb489c33d3081227bb, type: 3}
+      propertyPath: saveSystemType
+      value: 3
+      objectReference: {fileID: 0}
+    m_RemovedComponents:
+    - {fileID: 7410276597102333530, guid: f32ecf159c07c4bb489c33d3081227bb, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: f32ecf159c07c4bb489c33d3081227bb, type: 3}
