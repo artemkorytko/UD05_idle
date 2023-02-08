@@ -1,0 +1,102 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bbb281ee3bf0b054c82ac2347e9e782c, type: 3}
+  m_Name: Default Local Group
+  m_EditorClassIdentifier: 
+  m_GroupName: Default Local Group
+  m_Data:
+    m_SerializedData: []
+  m_GUID: 6831fa3fb4fa54206aa7871cc304b8ea
+  m_SerializeEntries:
+  - m_GUID: b6464e98cabac4b369c3de308c0b4805
+    m_Address: BuildingEmpty
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - default
+  - m_GUID: 014610731a97945da865e53286f40d96
+    m_Address: Clinic 3 NEW
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: df89b4cf2d6414a1cb5d4770c2a23732
+    m_Address: Factory 2 NEW
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: 0337cd60bfc36404ead641035dfc228b
+    m_Address: Clinic 1
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: 5bbc7d0a7a9a94f26abc13b4a7648970
+    m_Address: Clinic 2
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: b086897e27aa94281be7a81f4357a54f
+    m_Address: Shop 2
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: a4a4bf7faa0af48a9bbc2ef1e52c6928
+    m_Address: Farm 1
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: 16f5de40a95ee41f99023dba1a1b8b18
+    m_Address: House 3
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: 06311d298c114480981cab19a8341191
+    m_Address: House 1
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: c5a63842527274495bdd9d778899e1cb
+    m_Address: House 2
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: b9bf1c4e58f214631be4008d564d45c3
+    m_Address: Office 1
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: 5cf00efade7cb487daeb7bdaf94970b0
+    m_Address: Shop 1
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: 3d7b34f92a06b47ff9ba347b12c866c8
+    m_Address: Factory 3 NEW
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: 856092089e28f48c8a64d4285ee5041b
+    m_Address: Office 3
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: 0c7e28744ad454a16bdc50fb30c80847
+    m_Address: Farm 2
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: e3c7d82b6cbd941e7ab803f3d4efdaef
+    m_Address: Shop 3
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: 8aee019c79533467a9e2190703df27ac
+    m_Address: Farm 3
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: 92d45fddd714d4cf0a222ed5364b1410
+    m_Address: Office 2
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: 11b5967a66cc5433f985e296bdc6bd8d
+    m_Address: Factory 1 - PODVINULA
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  m_ReadOnly: 0
+  m_Settings: {fileID: 11400000, guid: 66113e579cbdc4ae3abf364f52d2aa1f, type: 2}
+  m_SchemaSet:
+    m_Schemas:
+    - {fileID: 11400000, guid: 712ee9c6657584ea7bfcb9a5c21e3c7a, type: 2}
+    - {fileID: 11400000, guid: 25ced65e27c944a66876cb8e8ddbb420, type: 2}
